@@ -7,6 +7,7 @@
     <meta name="description"
         content="Conheça o Nails Club, uma casa noturna fictícia dedicada à música e à cultura alternativa.">
     <title>Nails Club | Música e cultura alternativa</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="topo">
@@ -95,15 +96,15 @@
                     <legend>Mensagem</legend>
                     <p>
                         <label for="nome">Nome</label>
-                        <input id="nome" name="nome" autocomplete="name">
+                        <input id="nome" name="nome" autocomplete="name" required>
                     </p>
                     <p>
                         <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" autocomplete="email">
+                        <input id="email" name="email" type="email" autocomplete="email" required>
                     </p>
                     <p>
                         <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
                     </p>
                     <button type="submit">Enviar mensagem</button>
                 </fieldset>

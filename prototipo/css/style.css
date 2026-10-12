@@ -1,0 +1,299 @@
+:root {
+    color-scheme: dark;
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: #1a1a1a;
+    --color-accent: #6b00b3;
+    --color-highlight: #00b3ff;
+    --color-danger: #b30000;
+    --color-danger-text: #ff9e9e;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --font-family-base: "Cinzel", "Palatino Linotype", Georgia, serif;
+    --font-family-accent: "Montserrat", "Trebuchet MS", sans-serif;
+    --font-size-base: 16px;
+    --font-size-heading: 32px;
+    --border-radius: 4px;
+    --border-color: #333333;
+    --transition-speed: 0.3s;
+    --hover-scale: 1.05;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--color-bg-primary);
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+body > header,
+body > main,
+body > footer {
+    width: min(100% - 2rem, 68rem);
+    margin-inline: auto;
+}
+
+body > header {
+    padding-block: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body > header > a {
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 var(--space-md) var(--space-xs) 0;
+}
+
+main > section {
+    padding-block: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+main > section:first-child {
+    margin-block: var(--space-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--border-radius);
+    background: var(--color-bg-secondary);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+    line-height: 1.2;
+}
+
+h1 {
+    max-width: 22ch;
+    margin-top: 0;
+    font-size: var(--font-size-heading);
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+main > section + section > h2::before {
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-inline-end: 0.6rem;
+    background: var(--color-highlight);
+    content: "";
+    vertical-align: 0.12em;
+}
+
+p,
+li,
+td,
+th,
+label,
+summary {
+    color: var(--color-text-primary);
+}
+
+li::marker {
+    color: var(--color-highlight);
+}
+
+a:link {
+    color: var(--color-highlight);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+a:visited {
+    color: #c9a3e8;
+}
+
+a:hover {
+    color: var(--color-text-primary);
+    text-decoration-color: var(--color-accent);
+}
+
+a:active {
+    color: var(--color-danger-text);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 3px;
+}
+
+details {
+    margin-block: var(--space-md);
+    padding: var(--space-md);
+    border-left: 2px solid var(--color-accent);
+    background: var(--color-bg-secondary);
+}
+
+summary {
+    cursor: pointer;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+summary:hover {
+    color: var(--color-highlight);
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+caption {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+    overflow-wrap: anywhere;
+    text-align: left;
+}
+
+th,
+td {
+    padding: var(--space-sm);
+    border: 1px solid var(--border-color);
+    overflow-wrap: anywhere;
+}
+
+thead th {
+    background: var(--color-bg-secondary);
+    font-family: var(--font-family-accent);
+}
+
+tbody tr:nth-child(even) {
+    background: var(--color-bg-secondary);
+}
+
+fieldset {
+    padding: var(--space-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+legend {
+    padding-inline: var(--space-xs);
+    color: var(--color-text-secondary);
+}
+
+input,
+textarea {
+    display: block;
+    width: min(100%, 32rem);
+    margin-top: var(--space-xs);
+    padding: var(--space-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:required:invalid:not(:disabled),
+textarea:required:invalid:not(:disabled) {
+    border-color: var(--color-danger-text);
+    box-shadow: 0 0 0 1px var(--color-danger);
+}
+
+button {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-highlight);
+    border-radius: var(--border-radius);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font: 700 1rem var(--font-family-accent);
+    transition: color var(--transition-speed),
+        background-color var(--transition-speed),
+        transform var(--transition-speed);
+}
+
+button:not(:disabled):hover {
+    transform: scale(var(--hover-scale));
+    background: var(--color-highlight);
+    color: var(--color-bg-primary);
+}
+
+button:not(:disabled):active {
+    transform: scale(1);
+    border-color: var(--color-danger);
+}
+
+button:disabled,
+fieldset:disabled input,
+fieldset:disabled textarea {
+    border-color: var(--border-color);
+    background: #252525;
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+}
+
+body > footer {
+    padding-block: var(--space-lg);
+    color: var(--color-text-secondary);
+}
+
+body > footer p {
+    color: var(--color-text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    button {
+        transition: none;
+    }
+
+    button:not(:disabled):hover,
+    button:not(:disabled):active {
+        transform: none;
+    }
+}
