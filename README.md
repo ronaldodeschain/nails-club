@@ -43,3 +43,31 @@ Góticos a procura de um local seguro e estilizado para frequentar, ouvir boas m
 | Design responsivo e acessibilidade | Execução financeira real (investidores, contratos, aluguel de espaço) |
 | Galeria de imagens e informações institucionais | Expansão e franquias em outras cidades ou países |
 | Agenda fictícia de eventos (apenas ilustrativa, sem vendas) | Simulação de vendas, compra de ingressos ou controle de estoque |
+
+## T01 — Base HTML
+
+A página inicial está em `prototipo/index.html`. Os links de navegação usam âncoras HTML, então continuam funcionando sem JavaScript. O conteúdo principal também não depende de CSS ou JavaScript. A explicação sobre dress code usa `<details>` e `<summary>`: navegadores compatíveis oferecem a divulgação nativa; se o recurso não for reconhecido, o texto continua presente no documento como fallback.
+
+Para conferir a base sem estilos e scripts, abra `prototipo/index.html` no navegador e desative CSS e JavaScript nas ferramentas de desenvolvimento. Teste os links por teclado e confirme que o zoom continua disponível.
+
+## Estrutura do repositório
+
+```text
+/
+├─ README.md
+├─ DECISOES.md
+├─ TESTES.md
+├─ CMS.md
+├─ docs/
+│  ├─ evidencias/
+│  └─ relatorio-final.md
+├─ prototipo/
+│  ├─ index.html
+│  ├─ assets/
+│  └─ js/
+├─ wordpress/
+│  └─ tema-filho/
+└─ tests/
+```
+
+Os diretórios ainda sem implementação contêm apenas `.gitkeep` para permanecerem visíveis no Git. Consulte `DECISOES.md`, `TESTES.md` e `CMS.md` para o estado e as pendências de cada frente.
