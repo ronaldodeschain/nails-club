@@ -2,8 +2,7 @@
 
 ## Missão
 
-Construir, publicar e defender um portal mobile-first para acompanhar uma temporada
-esportiva. O mesmo produto deve evoluir do protótipo sem framework até uma versão em
+Construir, publicar e defender um portal mobile-first para acompanhar uma casa noturna. O mesmo produto deve evoluir do protótipo sem framework até uma versão em
 WordPress, preservando conteúdo, tarefas, acessibilidade e desempenho.
 
 O repositório deve permitir que outra pessoa instale, execute, teste e compreenda o
