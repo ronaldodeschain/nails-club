@@ -50,6 +50,10 @@ A página inicial está em `prototipo/index.html`. Os links de navegação usam 
 
 Para conferir a base sem estilos e scripts, abra `prototipo/index.html` no navegador e desative CSS e JavaScript nas ferramentas de desenvolvimento. Teste os links por teclado e confirme que o zoom continua disponível.
 
+## T02 — Sistema CSS
+
+A folha `prototipo/css/style.css` define tokens de design e estados de interação. As escolhas de cascata, tipografia, unidades e estados estão registradas em `DECISOES.md`.
+
 ## Estrutura do repositório
 
 ```text
