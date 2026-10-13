@@ -2,22 +2,22 @@
     color-scheme: dark;
     --color-bg-primary: #0a0a0a;
     --color-bg-secondary: #1a1a1a;
-    --color-accent: #6b00b3;
+    --color-accent: #9d4edd;
     --color-highlight: #00b3ff;
     --color-danger: #b30000;
-    --color-danger-text: #ff9e9e;
+    --color-danger-text: #ffb8b8;
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #a0a0a0;
+    --border-color: #5a5a5a;
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 32px;
-    --font-family-base: "Cinzel", "Palatino Linotype", Georgia, serif;
-    --font-family-accent: "Montserrat", "Trebuchet MS", sans-serif;
+    --font-family-base: "Cinzel", Georgia, serif;
+    --font-family-accent: "Montserrat", sans-serif;
     --font-size-base: 16px;
     --font-size-heading: 32px;
     --border-radius: 4px;
-    --border-color: #333333;
     --transition-speed: 0.3s;
     --hover-scale: 1.05;
 }
@@ -342,7 +342,7 @@ button {
     padding: var(--space-sm) var(--space-md);
     border: 1px solid var(--color-highlight);
     border-radius: var(--border-radius);
-    background: var(--color-bg-secondary);
+    background: linear-gradient(90deg,var(--color-highlight),var(--color-bg-secondary));
     color: var(--color-text-primary);
     cursor: pointer;
     font: 700 1rem var(--font-family-accent);
@@ -353,7 +353,7 @@ button {
 
 button:not(:disabled):hover {
     transform: scale(var(--hover-scale));
-    background: var(--color-highlight);
+    background: linear-gradient(90deg, var(--color-bg-secondary),var(--color-highlight));
     color: var(--color-bg-primary);
 }
 
@@ -417,18 +417,24 @@ body > footer p {
         width: calc(100% - 1rem);
     }
 }
-
+@media(prefers-reduced-motion: reduce){
+    *{
+        animation: none;
+        transition: none;
+    }
+}
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+
     }
 
     button {
-        transition: none;
+        transition: background-color 0.3s ease,transform 0.3s ease;
     }
 
     button:not(:disabled):hover,
     button:not(:disabled):active {
-        transform: none;
+        transform: scale(1.05);
     }
 }
