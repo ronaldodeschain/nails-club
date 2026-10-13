@@ -18,6 +18,7 @@
         <nav aria-label="Navegação principal">
             <ul>
                 <li><a href="#conceito">O clube</a></li>
+                <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#agenda">Agenda</a></li>
                 <li><a href="#convivencia">Convivência</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -27,10 +28,19 @@
 
     <main id="conteudo">
         <section aria-labelledby="titulo-principal">
-            <h1 id="titulo-principal">Noites para quem vive a música alternativa</h1>
-            <p>O Nails Club é uma casa noturna fictícia com uma proposta acolhedora para pessoas ligadas à cena gótica e
-                alternativa.</p>
-            <p><a href="#agenda">Conheça a agenda demonstrativa</a></p>
+            <div class="hero-layout">
+                <div class="hero-copy">
+                    <h1 id="titulo-principal">Noites para quem vive a música alternativa</h1>
+                    <p>O Nails Club é uma casa noturna fictícia com uma proposta acolhedora para pessoas ligadas à cena gótica e
+                        alternativa.</p>
+                    <p><a href="#agenda">Conheça a agenda demonstrativa</a></p>
+                </div>
+                <figure class="hero-image">
+                    <img src="assets/entrada-do-club.jpg" width="1408" height="768"
+                        alt="Entrada do Nails Club à noite, com fachada de tijolos, letreiro luminoso e visitantes">
+                    <figcaption>Uma casa fictícia para a cena alternativa.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <section id="conceito" aria-labelledby="titulo-conceito">
@@ -48,37 +58,108 @@
             </details>
         </section>
 
+        <section id="galeria" aria-labelledby="titulo-galeria">
+            <h2 id="titulo-galeria">Por dentro do Nails Club</h2>
+            <p>Imagens ilustrativas do espaço fictício.</p>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="assets/pista-de-danca.jpg" width="1408" height="768" loading="lazy"
+                        alt="Público dançando na pista do clube sob luzes azuis e vermelhas">
+                    <figcaption>Pista de dança</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/pista-vista-aerea.jpg" width="1408" height="768" loading="lazy"
+                        alt="Vista elevada da pista com visitantes e iluminação cênica">
+                    <figcaption>A pista vista de cima</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/bar.jpg" width="1408" height="768" loading="lazy"
+                        alt="Bar do clube com equipe atendendo visitantes em um ambiente de luz baixa">
+                    <figcaption>Bar e convivência</figcaption>
+                </figure>
+            </div>
+        </section>
+
         <section id="agenda" aria-labelledby="titulo-agenda">
             <h2 id="titulo-agenda">Agenda demonstrativa</h2>
             <p>Programação fictícia para apresentação do projeto; não representa eventos confirmados nem oferece venda
                 de ingressos.</p>
-            <table>
-                <caption>Exemplos de noites temáticas, sem datas ou eventos confirmados</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Noite</th>
-                        <th scope="col">Proposta musical</th>
-                        <th scope="col">Atividade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Noite Darkwave</th>
-                        <td>Darkwave e gothic rock</td>
-                        <td>Encontro musical</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Ruído Industrial</th>
-                        <td>Industrial e EBM</td>
-                        <td>Apresentação conceitual</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Versos na Penumbra</th>
-                        <td>Seleção alternativa</td>
-                        <td>Noite de poesia</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ul class="agenda-cards" aria-label="Noites da agenda demonstrativa">
+                <li>
+                    <article>
+                        <h3>Noite Darkwave</h3>
+                        <dl>
+                            <div>
+                                <dt>Proposta musical</dt>
+                                <dd>Darkwave e gothic rock</dd>
+                            </div>
+                            <div>
+                                <dt>Atividade</dt>
+                                <dd>Encontro musical</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Ruído Industrial</h3>
+                        <dl>
+                            <div>
+                                <dt>Proposta musical</dt>
+                                <dd>Industrial e EBM</dd>
+                            </div>
+                            <div>
+                                <dt>Atividade</dt>
+                                <dd>Apresentação conceitual</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Versos na Penumbra</h3>
+                        <dl>
+                            <div>
+                                <dt>Proposta musical</dt>
+                                <dd>Seleção alternativa</dd>
+                            </div>
+                            <div>
+                                <dt>Atividade</dt>
+                                <dd>Noite de poesia</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </li>
+            </ul>
+            <div class="agenda-table">
+                <table>
+                    <caption>Exemplos de noites temáticas, sem datas ou eventos confirmados</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Noite</th>
+                            <th scope="col">Proposta musical</th>
+                            <th scope="col">Atividade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Noite Darkwave</th>
+                            <td>Darkwave e gothic rock</td>
+                            <td>Encontro musical</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ruído Industrial</th>
+                            <td>Industrial e EBM</td>
+                            <td>Apresentação conceitual</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Versos na Penumbra</th>
+                            <td>Seleção alternativa</td>
+                            <td>Noite de poesia</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section id="convivencia" aria-labelledby="titulo-convivencia">

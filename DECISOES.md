@@ -23,6 +23,16 @@
 - **Estados demonstrados:** links e botão têm estados normal, hover, foco visível e ativo; controles obrigatórios têm regra `:invalid` quando habilitados; `fieldset:disabled` e seus controles demonstram o estado desabilitado. O formulário permanece desabilitado até haver um destino de envio.
 - **Movimento:** a transição do botão usa `--transition-speed` e `--hover-scale`; `prefers-reduced-motion` remove a transição e o scroll suave.
 
+## D-004 — Layouts do protótipo
+
+- **Status:** implementada em `prototipo/css/style.css`.
+- **Flexbox:** cabeçalho e navegação usam Flexbox com quebra para acomodar larguras estreitas sem alterar a ordem do documento.
+- **Grid:** o destaque combina texto e imagem em duas colunas a partir de `42rem`; a galeria passa de uma coluna para duas a partir de `42rem` e três a partir de `62rem`.
+- **Ordem semântica:** a ordem visual acompanha a ordem do HTML em todos os tamanhos; não há `order` nem áreas de Grid que reordenem conteúdo.
+- **Agenda responsiva:** abaixo de `42rem`, a programação aparece como lista de itens com pares termo/descrição; a partir de `42rem`, aparece a tabela semântica. As duas apresentações mantêm a mesma ordem e apenas uma fica disponível visualmente e na árvore de acessibilidade por breakpoint.
+- **Imagens:** imagens locais incluem dimensões intrínsecas, texto alternativo e proporção visual 16:9 para reduzir mudanças de layout durante o carregamento.
+- **Validação:** 320 CSS px e os breakpoints de `42rem` e `62rem` foram verificados no navegador integrado; a agenda alterna de cards para tabela e a página não apresenta overflow. Permanecem pendentes conteúdo vazio/variável, dispositivo físico e revisão completa da ordem de leitura com leitor de tela; registrar evidências em `TESTES.md`.
+
 ## Registro de novas decisões
 
 Para cada decisão relevante, registrar data, contexto, alternativas consideradas, escolha, consequência e tarefa relacionada. Não registrar segredos ou dados pessoais.

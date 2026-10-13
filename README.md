@@ -54,6 +54,10 @@ Para conferir a base sem estilos e scripts, abra `prototipo/index.html` no naveg
 
 A folha `prototipo/css/style.css` define tokens de design e estados de interação. As escolhas de cascata, tipografia, unidades e estados estão registradas em `DECISOES.md`.
 
+## T03 — Layout e imagens
+
+O cabeçalho usa Flexbox; o destaque e a galeria usam Grid responsivo. As imagens da casa estão em `prototipo/assets/` e são carregadas localmente. A agenda usa cards em lista no mobile e tabela semântica em telas maiores, sem exigir rolagem horizontal no celular. Casos de viewport e conteúdo estão descritos em `TESTES.md`.
+
 ## Estrutura do repositório
 
 ```text
