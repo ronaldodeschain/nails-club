@@ -33,6 +33,14 @@
 - **Imagens:** imagens locais incluem dimensões intrínsecas, texto alternativo e proporção visual 16:9 para reduzir mudanças de layout durante o carregamento.
 - **Validação:** 320 CSS px e os breakpoints de `42rem` e `62rem` foram verificados no navegador integrado; a agenda alterna de cards para tabela e a página não apresenta overflow. Permanecem pendentes conteúdo vazio/variável, dispositivo físico e revisão completa da ordem de leitura com leitor de tela; registrar evidências em `TESTES.md`.
 
+## D-005 — Responsividade por conteúdo e contêiner
+
+- **Status:** implementação e validação em navegador integrado; verificações em aparelho físico ainda pendentes em `TESTES.md`.
+- **Decisão:** manter os breakpoints existentes orientados pelas mudanças de layout; limitar a tipografia do título com `clamp()` relativo à largura do destaque e usar container query nos cards da agenda para alinhar metadados somente quando o próprio card tiver espaço.
+- **Imagens:** cada foto tem variantes JPEG de 480px e 960px, além do original de 1408px. `srcset`/`sizes` preservam as dimensões intrínsecas e permitem seleção por largura renderizada.
+- **Validação:** sem overflow entre 320 e 993 CSS px e no equivalente de 160 CSS px; agenda alterna em 42rem e galeria em 62rem; container query, orientação emulada, conteúdo longo, foco visível e carregamento das variantes foram verificados. Zoom real, teclado virtual e aparelho físico continuam pendentes.
+- **Consequência:** os componentes adaptam o conteúdo ao espaço disponível, não apenas à viewport, e o navegador pode transferir imagens menores em layouts compactos.
+
 ## Registro de novas decisões
 
 Para cada decisão relevante, registrar data, contexto, alternativas consideradas, escolha, consequência e tarefa relacionada. Não registrar segredos ou dados pessoais.

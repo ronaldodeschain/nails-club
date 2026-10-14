@@ -111,12 +111,12 @@ interface continua utilizável com movimento reduzido. Relaciona A9–A10.
 
 ### T05 — Implementar responsividade completa
 
-- [ ] Criar media queries orientadas pelo conteúdo, não por modelos de aparelho.
-- [ ] Testar antes, no ponto e depois de cada breakpoint.
-- [ ] Entregar imagens com dimensões, `srcset`/`sizes` ou `<picture>` quando aplicável.
-- [ ] Aplicar tipografia fluida com limites legíveis.
-- [ ] Usar container query em um componente reutilizado em contêineres diferentes.
-- [ ] Validar zoom, orientação, textos longos, teclado virtual e celular real.
+- [x] Criar media queries orientadas pelo conteúdo, não por modelos de aparelho.
+- [x] Testar antes, no ponto e depois de cada breakpoint.
+- [x] Entregar imagens com dimensões, `srcset`/`sizes` ou `<picture>` quando aplicável.
+- [x] Aplicar tipografia fluida com limites legíveis.
+- [x] Usar container query em um componente reutilizado em contêineres diferentes.
+- [x] Validar zoom, orientação, textos longos, teclado virtual e celular real.
 
 **Aceite:** matriz em `TESTES.md` registra dimensões e condições; não há conteúdo
 suprimido apenas para caber. Relaciona A11–A12.
