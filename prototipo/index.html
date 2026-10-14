@@ -1,33 +1,42 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 
 <head>
     <meta charset="utf-8">
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Conheça o Nails Club, uma casa noturna fictícia dedicada à música e à cultura alternativa.">
     <title>Nails Club | Música e cultura alternativa</title>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-5.3.8/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="topo">
     <a href="#conteudo">Pular para o conteúdo principal</a>
 
-    <header>
-        <a href="#topo" aria-label="Nails Club, início">Nails Club</a>
-        <nav aria-label="Navegação principal">
-            <ul>
-                <li><a href="#conceito">O clube</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#agenda">Agenda</a></li>
-                <li><a href="#convivencia">Convivência</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <a class="navbar-brand" href="#topo" aria-label="Nails Club, início">Nails Club</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#primary-navigation" aria-controls="primary-navigation" aria-expanded="false"
+            aria-label="Abrir ou recolher navegação">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="primary-navigation">
+            <nav aria-label="Navegação principal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#conceito">O clube</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#convivencia">Convivência</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main id="conteudo">
-        <section aria-labelledby="titulo-principal">
+        <section tabindex="-1" aria-labelledby="titulo-principal">
             <div class="hero-layout">
                 <div class="hero-copy">
                     <h1 id="titulo-principal">Noites para quem vive a música alternativa</h1>
@@ -46,14 +55,14 @@
             </div>
         </section>
 
-        <section id="conceito" aria-labelledby="titulo-conceito">
+        <section id="conceito" tabindex="-1" aria-labelledby="titulo-conceito">
             <h2 id="titulo-conceito">Um espaço para descobrir e se conectar</h2>
             <p>A proposta reúne música, expressão artística e encontros em um ambiente de respeito. A identidade e a
                 programação apresentadas nesta página são conceituais.</p>
-            <ul>
-                <li>Curadoria de darkwave, gothic rock, industrial e EBM.</li>
-                <li>Encontros temáticos com espaço para diferentes expressões artísticas.</li>
-                <li>Dress code opcional: cada pessoa pode expressar seu próprio estilo.</li>
+            <ul class="row row-cols-1 row-cols-md-3 g-3 list-unstyled">
+                <li class="col">Curadoria de darkwave, gothic rock, industrial e EBM.</li>
+                <li class="col">Encontros temáticos com espaço para diferentes expressões artísticas.</li>
+                <li class="col">Dress code opcional: cada pessoa pode expressar seu próprio estilo.</li>
             </ul>
             <details>
                 <summary>O que significa dress code opcional?</summary>
@@ -61,7 +70,7 @@
             </details>
         </section>
 
-        <section id="galeria" aria-labelledby="titulo-galeria">
+        <section id="galeria" tabindex="-1" aria-labelledby="titulo-galeria">
             <h2 id="titulo-galeria">Por dentro do Nails Club</h2>
             <p>Imagens ilustrativas do espaço fictício.</p>
             <div class="gallery-grid">
@@ -92,10 +101,14 @@
             </div>
         </section>
 
-        <section id="agenda" aria-labelledby="titulo-agenda">
+        <section id="agenda" tabindex="-1" aria-labelledby="titulo-agenda">
             <h2 id="titulo-agenda">Agenda demonstrativa</h2>
             <p>Programação fictícia para apresentação do projeto; não representa eventos confirmados nem oferece venda
                 de ingressos.</p>
+            <button class="btn btn-outline-info js-only" type="button" data-bs-toggle="modal"
+                data-bs-target="#agenda-details" aria-controls="agenda-details" aria-haspopup="dialog">
+                Como funciona esta agenda?
+            </button>
             <ul class="agenda-cards" aria-label="Noites da agenda demonstrativa">
                 <li>
                     <article>
@@ -174,13 +187,13 @@
             </div>
         </section>
 
-        <section id="convivencia" aria-labelledby="titulo-convivencia">
+        <section id="convivencia" tabindex="-1" aria-labelledby="titulo-convivencia">
             <h2 id="titulo-convivencia">Respeito faz parte da experiência</h2>
             <p>O conceito do Nails Club prioriza uma convivência segura, respeitosa e acolhedora. A proposta é fictícia
                 e não substitui políticas ou serviços de um estabelecimento real.</p>
         </section>
 
-        <section id="contato" aria-labelledby="titulo-contato">
+        <section id="contato" tabindex="-1" aria-labelledby="titulo-contato">
             <h2 id="titulo-contato">Contato</h2>
             <p>Este formulário é apenas estrutural. O protótipo ainda não tem serviço de envio, portanto nenhum dado
                 será coletado.</p>
@@ -205,10 +218,30 @@
         </section>
     </main>
 
+    <div class="modal fade" id="agenda-details" tabindex="-1" aria-labelledby="agenda-details-title"
+        aria-describedby="agenda-details-description" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" data-bs-theme="dark">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="agenda-details-title">Sobre a agenda</h2>
+                </div>
+                <div class="modal-body" id="agenda-details-description">
+                    <p>Todas as noites desta página são exemplos fictícios para demonstrar o layout.</p>
+                    <p class="mb-0">Não são eventos confirmados e não há venda de ingressos.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-info" type="button" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Nails Club é um projeto acadêmico fictício. Agenda e conteúdo são ilustrativos.</p>
         <a href="#topo">Voltar ao início</a>
     </footer>
+    <script src="assets/vendor/bootstrap-5.3.8/bootstrap.bundle.min.js" defer></script>
+    <script src="js/bootstrap-components.js" defer></script>
 </body>
 
 </html>

@@ -41,6 +41,16 @@
 - **Validação:** sem overflow entre 320 e 993 CSS px e no equivalente de 160 CSS px; agenda alterna em 42rem e galeria em 62rem; container query, orientação emulada, conteúdo longo, foco visível e carregamento das variantes foram verificados. Zoom real, teclado virtual e aparelho físico continuam pendentes.
 - **Consequência:** os componentes adaptam o conteúdo ao espaço disponível, não apenas à viewport, e o navegador pode transferir imagens menores em layouts compactos.
 
+## D-006 — Bootstrap 5.3.8 em componentes delimitados
+
+- **Status:** implementada; matriz T06 em `TESTES.md`.
+- **Origem/licença:** distribuíveis oficiais Bootstrap v5.3.8 obtidos do jsDelivr (`https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/`) e licença MIT do tag oficial (`https://github.com/twbs/bootstrap/blob/v5.3.8/LICENSE`); CSS, bundle e licença ficam em `prototipo/assets/vendor/bootstrap-5.3.8/`. O protótipo não consulta CDN em execução.
+- **Escolha:** usar Navbar/Collapse para navegação mobile, Modal para explicar o caráter fictício da agenda e utilities `row`, `row-cols-*`, `g-3` e `ms-auto` onde reduzem CSS repetido. A navegação mantém âncoras e fallback visível sem JavaScript; ao escolher uma âncora no menu móvel, o foco segue para a seção e permanece visível.
+- **Comparação:** o destaque e a galeria continuam em CSS Grid próprio porque seus limites (42rem/62rem) foram ajustados ao conteúdo. A lista de conceito usa `row-cols-md-3`: reduz regras específicas, mas traz o breakpoint padrão `md` (768px) e dependência das classes Bootstrap. Para o Modal, `<details>` nativo seria menor, mas não oferece diálogo modal, contenção de foco, Escape e retorno ao acionador; Bootstrap implementa esses contratos.
+- **Custo:** arquivos distribuíveis minificados medem 232.111 bytes (CSS) e 80.496 bytes (bundle JS), além de aproximadamente 1 KB da licença; o bundle inclui Popper mesmo sem componente atual que o use. Não foram adicionadas dependências de build. Remover Bootstrap requer substituir Navbar, Modal e utilities, além de apagar os arquivos versionados.
+- **Customização:** variáveis `--bs-*` mapeiam cores e bordas para tokens do projeto; alvos interativos têm pelo menos 44px de altura e os estilos próprios mantêm cores, foco e contraste. Breakpoints e estados estão na CSS do protótipo.
+- **Validação:** abrir o protótipo localmente não gerou requisições HTTP(S) externas. No navegador integrado foram exercitados navegação e Modal por teclado, ARIA, foco, fechamento e breakpoints; o teste com JavaScript realmente desativado continua pendente em `TESTES.md`.
+
 ## Registro de novas decisões
 
 Para cada decisão relevante, registrar data, contexto, alternativas consideradas, escolha, consequência e tarefa relacionada. Não registrar segredos ou dados pessoais.

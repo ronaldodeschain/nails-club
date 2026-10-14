@@ -123,12 +123,12 @@ suprimido apenas para caber. Relaciona A11–A12.
 
 ### T06 — Integrar Bootstrap 5.3 com customização controlada
 
-- [ ] Usar grid, breakpoints e utilities onde reduzem código sem apagar a intenção.
-- [ ] Implementar ao menos dois componentes mobile com contratos completos de alvo,
+- [x] Usar grid, breakpoints e utilities onde reduzem código sem apagar a intenção.
+- [x] Implementar ao menos dois componentes mobile com contratos completos de alvo,
   ARIA, foco e fechamento.
-- [ ] Customizar tokens/variáveis e estados sem sobrescritas globais frágeis.
-- [ ] Carregar CSS e bundle de versão fixa com licença e origem documentadas.
-- [ ] Comparar pelo menos uma decisão Bootstrap com a solução CSS própria anterior.
+- [x] Customizar tokens/variáveis e estados sem sobrescritas globais frágeis.
+- [x] Carregar CSS e bundle de versão fixa com licença e origem documentadas.
+- [x] Comparar pelo menos uma decisão Bootstrap com a solução CSS própria anterior.
 
 **Aceite:** componentes funcionam offline quando os assets são locais, por teclado e nos
 limites de breakpoint; `DECISOES.md` registra custo e escolha. Relaciona A13–A14.
