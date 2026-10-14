@@ -87,6 +87,7 @@ main > section {
 }
 
 main > section:first-child {
+    container-type: inline-size;
     margin-block: var(--space-lg);
     padding: var(--space-lg);
     border: 1px solid var(--border-color);
@@ -155,7 +156,7 @@ h3 {
 h1 {
     max-width: 22ch;
     margin-top: 0;
-    font-size: var(--font-size-heading);
+    font-size: clamp(1.75rem, calc(1rem + 4cqi), 2.5rem);
 }
 
 h2 {
@@ -245,6 +246,11 @@ table {
     list-style: none;
 }
 
+.agenda-cards > li {
+    min-width: 0;
+    container-type: inline-size;
+}
+
 .agenda-cards article {
     padding: var(--space-md);
     border: 1px solid var(--border-color);
@@ -277,6 +283,14 @@ table {
 
 .agenda-table {
     display: none;
+}
+
+@container (min-width: 28rem) {
+    .agenda-cards dl > div {
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1fr);
+        align-items: baseline;
+    }
 }
 
 caption {
@@ -411,10 +425,22 @@ body > footer p {
 }
 
 @media (max-width: 24rem) {
+    body {
+        overflow-wrap: anywhere;
+    }
+
     body > header,
     body > main,
     body > footer {
         width: calc(100% - 1rem);
+    }
+
+    fieldset {
+        min-width: 0;
+    }
+
+    button {
+        max-width: 100%;
     }
 }
 @media(prefers-reduced-motion: reduce){
