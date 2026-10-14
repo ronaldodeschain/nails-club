@@ -43,6 +43,19 @@ Use CSS pixels no modo responsivo do navegador. Os limites atuais são 24rem (38
 | Celular real | Repetir largura mínima, orientação, zoom e foco em aparelho físico | Resultado compatível com o protótipo; registrar modelo, navegador e condições | Pendente |
 | Imagens responsivas | Inspecionar resolução de origem, dimensões e largura renderizada | As imagens preservam proporção e não causam overflow; adicionar `srcset`/`sizes` ou `<picture>` quando houver variantes adequadas | Concluído; `srcset` selecionou variantes 480px e 960px |
 
+## Verificações de T06
+
+Bootstrap 5.3.8 está em `prototipo/assets/vendor/bootstrap-5.3.8/`. Faça os testes abrindo o HTML local (`file://`); registre separadamente qualquer teste em celular real.
+
+| Caso | Viewports/procedimento | Resultado esperado | Estado |
+| --- | --- | --- | --- |
+| Grid Bootstrap | 767/768/769x900 | Lista de conceito passa de uma coluna para três em 768px, sem overflow | Concluído no navegador integrado |
+| Navbar móvel | 320/480/991/992px; ativar o controle com Enter, percorrer os links e escolher uma âncora | Alvo de pelo menos 44px; `aria-expanded` acompanha abertura/fechamento; o destino recebe foco visível | Concluído no navegador integrado; 992px mostra navegação expandida |
+| Modal por teclado | Focar o botão da agenda e ativar com Enter; pressionar Tab repetidamente | Diálogo tem nome e descrição acessíveis; foco permanece dentro enquanto está aberto | Concluído no navegador integrado |
+| Fechar Modal | Fechar com Escape e com o botão “Fechar” | Diálogo some, a rolagem do fundo é restaurada e o foco retorna ao acionador | Concluído no navegador integrado |
+| Arquivos locais/offline | Abrir `prototipo/index.html` diretamente e inspecionar recursos carregados | CSS e bundle locais carregam; nenhum recurso Bootstrap depende de CDN | Concluído; nenhuma requisição HTTP(S) externa observada |
+| Fallback sem JavaScript | Desativar JavaScript no navegador e abrir a página | Links de navegação continuam disponíveis; controles que dependem de JS não aparecem | Pendente de teste com JavaScript realmente desativado; regra `no-js` conferida em simulação |
+
 ## Execução
 
 Abra `prototipo/index.html` diretamente em um navegador. Não é necessário instalar dependências nem iniciar servidor para o protótipo estático atual.
@@ -58,6 +71,7 @@ Abra `prototipo/index.html` diretamente em um navegador. Não é necessário ins
 | 12/10/2026 | Microsoft Edge | Formulário estrutural | ![teste 01](/prototipo/assets/testes/T01-teste5.jpg) |
 | 12/10/2026 | Chrome 150.0.7871.250 (VS Code, Windows) | Agenda e breakpoints de layout | 320 CSS px: cards sem overflow; 656/672/688: agenda alterna para tabela; 976/992/1008: galeria passa de duas para três colunas; página sem overflow |
 | 14/10/2026 | Chrome integrado no VS Code (versão não exposta) | T05: larguras, breakpoints, container query, imagens, orientação, conteúdo longo e foco | Sem overflow de 320 a 993 CSS px e a 160 CSS px; agenda alterna em 672px, galeria em 992px; cards se adaptam; variantes 480/960 carregam; orientação e foco visível aprovados. Zoom real, teclado virtual e aparelho físico permanecem pendentes. |
+| 14/10/2026 | Chrome integrado no VS Code (versão não exposta) | T06: grid, Navbar, Modal, foco, breakpoints e recursos locais | Grid muda para três colunas em 768px; Navbar colapsa até 991px e expande em 992px; seleção por teclado move foco à seção e exibe contorno; Modal mantém foco, fecha por Escape/botão e restaura acionador; nenhum recurso HTTP(S) externo. |
 
 
 

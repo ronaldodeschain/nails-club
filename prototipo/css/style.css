@@ -20,6 +20,11 @@
     --border-radius: 4px;
     --transition-speed: 0.3s;
     --hover-scale: 1.05;
+    --bs-body-bg: var(--color-bg-primary);
+    --bs-body-color: var(--color-text-primary);
+    --bs-border-color: var(--border-color);
+    --bs-link-color: var(--color-highlight);
+    --bs-link-hover-color: var(--color-text-primary);
 }
 
 *,
@@ -59,6 +64,11 @@ body > header {
     border-bottom: 1px solid var(--border-color);
 }
 
+body > header.navbar {
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: var(--space-md);
+}
+
 body > header > a {
     display: inline-block;
     margin: 0;
@@ -66,6 +76,38 @@ body > header > a {
     font-family: var(--font-family-accent);
     font-weight: 700;
     text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+.navbar .navbar-nav .nav-link {
+    min-height: 44px;
+    padding-block: var(--space-sm);
+    color: var(--color-highlight);
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus-visible {
+    color: var(--color-text-primary);
+}
+
+.navbar .navbar-toggler {
+    min-width: 44px;
+    min-height: 44px;
+    border-color: var(--color-highlight);
+}
+
+html.no-js .navbar-toggler,
+html.no-js .js-only {
+    display: none;
+}
+
+html.no-js .navbar-collapse.collapse:not(.show) {
+    display: block;
 }
 
 nav ul {
@@ -84,6 +126,11 @@ nav li {
 main > section {
     padding-block: var(--space-lg);
     border-bottom: 1px solid var(--border-color);
+}
+
+main > section:focus {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 4px;
 }
 
 main > section:first-child {
@@ -385,6 +432,47 @@ fieldset:disabled textarea {
     cursor: not-allowed;
 }
 
+.btn {
+    --bs-btn-font-family: var(--font-family-accent);
+    --bs-btn-font-weight: 700;
+    --bs-btn-border-radius: var(--border-radius);
+    --bs-btn-padding-x: var(--space-md);
+    --bs-btn-padding-y: var(--space-sm);
+    min-height: 44px;
+}
+
+.btn-outline-info {
+    --bs-btn-color: var(--color-highlight);
+    --bs-btn-border-color: var(--color-highlight);
+    --bs-btn-hover-color: var(--color-bg-primary);
+    --bs-btn-hover-bg: var(--color-highlight);
+    --bs-btn-hover-border-color: var(--color-highlight);
+    --bs-btn-active-color: var(--color-bg-primary);
+    --bs-btn-active-bg: var(--color-highlight);
+    --bs-btn-active-border-color: var(--color-highlight);
+}
+
+button.btn:not(:disabled):hover {
+    transform: none;
+    background-color: var(--bs-btn-hover-bg);
+    background-image: none;
+    border-color: var(--bs-btn-hover-border-color);
+    color: var(--bs-btn-hover-color);
+}
+
+button.btn:not(:disabled):active {
+    transform: none;
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+    color: var(--bs-btn-active-color);
+}
+
+.modal .modal-content {
+    --bs-modal-bg: var(--color-bg-secondary);
+    --bs-modal-color: var(--color-text-primary);
+    --bs-modal-border-color: var(--border-color);
+}
+
 body > footer {
     padding-block: var(--space-lg);
     color: var(--color-text-secondary);
@@ -443,6 +531,14 @@ body > footer p {
         max-width: 100%;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar-collapse,
+    .modal.fade .modal-dialog {
+        transition: none;
+    }
+}
+
 @media(prefers-reduced-motion: reduce){
     *{
         animation: none;
