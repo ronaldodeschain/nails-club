@@ -73,8 +73,13 @@
         <section id="galeria" tabindex="-1" aria-labelledby="titulo-galeria">
             <h2 id="titulo-galeria">Por dentro do Nails Club</h2>
             <p>Imagens ilustrativas do espaço fictício.</p>
-            <div class="gallery-grid">
-                <figure>
+            <div class="gallery-controls js-only" role="group" aria-label="Controles da galeria">
+                <button class="btn btn-outline-info" type="button" data-gallery-step="-1">Imagem anterior</button>
+                <p id="gallery-status" role="status" aria-live="polite" aria-atomic="true">Imagem 1 de 3: Pista de dança</p>
+                <button class="btn btn-outline-info" type="button" data-gallery-step="1">Próxima imagem</button>
+            </div>
+            <div class="gallery-grid" data-gallery-track role="group" aria-label="Galeria de imagens do clube" tabindex="0">
+                <figure aria-roledescription="slide" aria-label="1 de 3">
                     <img src="assets/pista-de-danca.jpg"
                         srcset="assets/pista-de-danca-480.jpg 480w, assets/pista-de-danca-960.jpg 960w, assets/pista-de-danca.jpg 1408w"
                         sizes="(min-width: 62rem) calc((min(100vw - 2rem, 68rem) - 2rem) / 3), (min-width: 42rem) calc((min(100vw - 2rem, 68rem) - 1rem) / 2), calc(100vw - 2rem)"
@@ -82,7 +87,7 @@
                         alt="Público dançando na pista do clube sob luzes azuis e vermelhas">
                     <figcaption>Pista de dança</figcaption>
                 </figure>
-                <figure>
+                <figure aria-roledescription="slide" aria-label="2 de 3">
                     <img src="assets/pista-vista-aerea.jpg"
                         srcset="assets/pista-vista-aerea-480.jpg 480w, assets/pista-vista-aerea-960.jpg 960w, assets/pista-vista-aerea.jpg 1408w"
                         sizes="(min-width: 62rem) calc((min(100vw - 2rem, 68rem) - 2rem) / 3), (min-width: 42rem) calc((min(100vw - 2rem, 68rem) - 1rem) / 2), calc(100vw - 2rem)"
@@ -90,7 +95,7 @@
                         alt="Vista elevada da pista com visitantes e iluminação cênica">
                     <figcaption>A pista vista de cima</figcaption>
                 </figure>
-                <figure>
+                <figure aria-roledescription="slide" aria-label="3 de 3">
                     <img src="assets/bar.jpg"
                         srcset="assets/bar-480.jpg 480w, assets/bar-960.jpg 960w, assets/bar.jpg 1408w"
                         sizes="(min-width: 62rem) calc((min(100vw - 2rem, 68rem) - 2rem) / 3), (min-width: 42rem) calc((min(100vw - 2rem, 68rem) - 1rem) / 2), calc(100vw - 2rem)"
@@ -105,12 +110,24 @@
             <h2 id="titulo-agenda">Agenda demonstrativa</h2>
             <p>Programação fictícia para apresentação do projeto; não representa eventos confirmados nem oferece venda
                 de ingressos.</p>
+            <div class="agenda-tools js-only">
+                <label for="agenda-filter">Filtrar noites da agenda</label>
+                <input class="form-control" id="agenda-filter" type="search" autocomplete="off"
+                    aria-describedby="agenda-filter-help">
+                <p id="agenda-filter-help">A busca considera o nome de cada noite.</p>
+            </div>
+            <p id="agenda-status" class="interaction-status" role="status" aria-live="polite" aria-atomic="true">
+                3 noites demonstrativas.
+            </p>
+            <button class="btn btn-outline-info js-only" id="add-agenda-example" type="button">
+                Adicionar exemplo local
+            </button>
             <button class="btn btn-outline-info js-only" type="button" data-bs-toggle="modal"
                 data-bs-target="#agenda-details" aria-controls="agenda-details" aria-haspopup="dialog">
                 Como funciona esta agenda?
             </button>
-            <ul class="agenda-cards" aria-label="Noites da agenda demonstrativa">
-                <li>
+            <ul class="agenda-cards" data-agenda-list aria-label="Noites da agenda demonstrativa">
+                <li data-event-id="darkwave">
                     <article>
                         <h3>Noite Darkwave</h3>
                         <dl>
@@ -125,7 +142,7 @@
                         </dl>
                     </article>
                 </li>
-                <li>
+                <li data-event-id="industrial">
                     <article>
                         <h3>Ruído Industrial</h3>
                         <dl>
@@ -140,7 +157,7 @@
                         </dl>
                     </article>
                 </li>
-                <li>
+                <li data-event-id="poesia">
                     <article>
                         <h3>Versos na Penumbra</h3>
                         <dl>
@@ -164,23 +181,27 @@
                             <th scope="col">Noite</th>
                             <th scope="col">Proposta musical</th>
                             <th scope="col">Atividade</th>
+                            <th class="js-only" scope="col">Favoritos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr data-event-id="darkwave">
                             <th scope="row">Noite Darkwave</th>
                             <td>Darkwave e gothic rock</td>
                             <td>Encontro musical</td>
+                            <td class="js-only" data-favorite-cell></td>
                         </tr>
-                        <tr>
+                        <tr data-event-id="industrial">
                             <th scope="row">Ruído Industrial</th>
                             <td>Industrial e EBM</td>
                             <td>Apresentação conceitual</td>
+                            <td class="js-only" data-favorite-cell></td>
                         </tr>
-                        <tr>
+                        <tr data-event-id="poesia">
                             <th scope="row">Versos na Penumbra</th>
                             <td>Seleção alternativa</td>
                             <td>Noite de poesia</td>
+                            <td class="js-only" data-favorite-cell></td>
                         </tr>
                     </tbody>
                 </table>
@@ -195,10 +216,9 @@
 
         <section id="contato" tabindex="-1" aria-labelledby="titulo-contato">
             <h2 id="titulo-contato">Contato</h2>
-            <p>Este formulário é apenas estrutural. O protótipo ainda não tem serviço de envio, portanto nenhum dado
-                será coletado.</p>
-            <form>
-                <fieldset disabled>
+            <p>Este formulário valida os campos somente neste navegador. Nenhum dado será enviado ou armazenado.</p>
+            <form id="contact-form">
+                <fieldset>
                     <legend>Mensagem</legend>
                     <p>
                         <label for="nome">Nome</label>
@@ -214,6 +234,7 @@
                     </p>
                     <button type="submit">Enviar mensagem</button>
                 </fieldset>
+                <p id="contact-status" class="interaction-status" role="status" aria-live="polite" aria-atomic="true"></p>
             </form>
         </section>
     </main>
@@ -242,6 +263,7 @@
     </footer>
     <script src="assets/vendor/bootstrap-5.3.8/bootstrap.bundle.min.js" defer></script>
     <script src="js/bootstrap-components.js" defer></script>
+    <script src="js/interactions.js" defer></script>
 </body>
 
 </html>

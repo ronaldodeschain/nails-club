@@ -56,6 +56,22 @@ Bootstrap 5.3.8 está em `prototipo/assets/vendor/bootstrap-5.3.8/`. Faça os te
 | Arquivos locais/offline | Abrir `prototipo/index.html` diretamente e inspecionar recursos carregados | CSS e bundle locais carregam; nenhum recurso Bootstrap depende de CDN | Concluído; nenhuma requisição HTTP(S) externa observada |
 | Fallback sem JavaScript | Desativar JavaScript no navegador e abrir a página | Links de navegação continuam disponíveis; controles que dependem de JS não aparecem | Pendente de teste com JavaScript realmente desativado; regra `no-js` conferida em simulação |
 
+## Verificações de T07
+
+Abra o protótipo local no navegador integrado. Os testes com Pointer Events de tipo touch são emulação, não substituem a validação num celular físico.
+
+| Caso | Procedimento | Resultado esperado | Estado |
+| --- | --- | --- | --- |
+| Filtro e busca vazia | Filtrar por `darkwave`, limpar e buscar texto sem correspondência | Cards e linhas da tabela permanecem sincronizados; status anuncia quantidade, inclusive zero | Concluído no navegador integrado |
+| Conteúdo não confiável | Usar `<img src=x onerror=alert(1)>` como texto da busca | Nenhum elemento é criado e a consulta não executa marcação | Concluído; busca não cria elementos HTML |
+| Favorito delegado | Usar Enter/clique em favorito existente e em item demonstrativo adicionado durante a sessão | `aria-pressed`, nome e status mudam; controles equivalentes em card e tabela ficam sincronizados | Concluído no navegador integrado |
+| Galeria por botão | Focar anterior/próxima e ativar por teclado | Slide e mensagem `aria-live` mudam; a grade desktop continua preservada | Concluído no navegador integrado |
+| Gesto e cancelamento | Arrastar horizontalmente a galeria; em seguida simular `pointercancel` com `pointerType="touch"` | Arrasto avança uma imagem; cancelamento não altera o slide; sem overflow da página | Concluído com mouse e PointerEvent touch emulado |
+| Formulário inválido | Enviar com campos obrigatórios vazios | Validação nativa foca o primeiro campo inválido e o status orienta a revisão | Concluído no navegador integrado |
+| Formulário válido | Preencher campos e enviar | Status informa validação local; campos são limpos; não há envio ou persistência | Concluído no navegador integrado |
+| Ciclo de vida e console | Simular `pagehide`/`pageshow`, repetir uma ação e observar console | Listeners não duplicam, estados continuam operando e o fluxo principal não gera erros | Concluído; zero erros no fluxo integrado |
+| Dispositivo touch real | Repetir Navbar, favoritos, galeria e formulário em celular físico | Gestos e controles funcionam por toque, sem ação duplicada | Pendente; emulação não substitui aparelho |
+
 ## Execução
 
 Abra `prototipo/index.html` diretamente em um navegador. Não é necessário instalar dependências nem iniciar servidor para o protótipo estático atual.
@@ -72,6 +88,7 @@ Abra `prototipo/index.html` diretamente em um navegador. Não é necessário ins
 | 12/10/2026 | Chrome 150.0.7871.250 (VS Code, Windows) | Agenda e breakpoints de layout | 320 CSS px: cards sem overflow; 656/672/688: agenda alterna para tabela; 976/992/1008: galeria passa de duas para três colunas; página sem overflow |
 | 14/10/2026 | Chrome integrado no VS Code (versão não exposta) | T05: larguras, breakpoints, container query, imagens, orientação, conteúdo longo e foco | Sem overflow de 320 a 993 CSS px e a 160 CSS px; agenda alterna em 672px, galeria em 992px; cards se adaptam; variantes 480/960 carregam; orientação e foco visível aprovados. Zoom real, teclado virtual e aparelho físico permanecem pendentes. |
 | 14/10/2026 | Chrome integrado no VS Code (versão não exposta) | T06: grid, Navbar, Modal, foco, breakpoints e recursos locais | Grid muda para três colunas em 768px; Navbar colapsa até 991px e expande em 992px; seleção por teclado move foco à seção e exibe contorno; Modal mantém foco, fecha por Escape/botão e restaura acionador; nenhum recurso HTTP(S) externo. |
+| 14/10/2026 | Chrome integrado no VS Code (versão não exposta) | T07: filtro, favoritos, item dinâmico, galeria, formulário e ciclo de vida | Busca sincroniza lista e tabela; favorito dinâmico atualiza ARIA/status; swipe avança e `pointercancel` preserva slide; formulário inválido/válido não envia dados; `pagehide`/`pageshow` não duplica listeners; zero erros de console. Gesto touch validado por emulação, não em aparelho físico. |
 
 
 

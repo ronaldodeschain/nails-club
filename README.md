@@ -58,6 +58,10 @@ A folha `prototipo/css/style.css` define tokens de design e estados de interaç�
 
 O cabeçalho usa Flexbox; o destaque e a galeria usam Grid responsivo. As imagens da casa estão em `prototipo/assets/` e são carregadas localmente. A agenda usa cards em lista no mobile e tabela semântica em telas maiores, sem exigir rolagem horizontal no celular. Casos de viewport e conteúdo estão descritos em `TESTES.md`.
 
+## T07 — Interações nativas
+
+A agenda pode ser filtrada e favoritada; a galeria tem controles por botão e gesto Pointer Events; o formulário valida os campos apenas no navegador, sem enviar nem armazenar dados. O protótipo pode ser aberto offline em `prototipo/index.html`. Consulte `TESTES.md` para os casos exercitados e as verificações ainda pendentes em aparelho físico.
+
 ## Estrutura do repositório
 
 ```text

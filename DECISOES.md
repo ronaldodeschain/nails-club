@@ -51,6 +51,15 @@
 - **Customização:** variáveis `--bs-*` mapeiam cores e bordas para tokens do projeto; alvos interativos têm pelo menos 44px de altura e os estilos próprios mantêm cores, foco e contraste. Breakpoints e estados estão na CSS do protótipo.
 - **Validação:** abrir o protótipo localmente não gerou requisições HTTP(S) externas. No navegador integrado foram exercitados navegação e Modal por teclado, ARIA, foco, fechamento e breakpoints; o teste com JavaScript realmente desativado continua pendente em `TESTES.md`.
 
+## D-007 — Interações nativas do protótipo
+
+- **Status:** implementadas e exercitadas no navegador integrado; toque em aparelho físico permanece pendente.
+- **DOM e eventos:** `prototipo/js/interactions.js` cria controles e itens com `createElement`/`textContent`, sem inserir texto da busca como marcação. Favoritos usam delegação nas listas de cards e linhas da tabela, incluindo registros adicionados durante a sessão.
+- **Galeria:** em viewports móveis, Pointer Events controlam o gesto horizontal; `pointercancel` encerra o gesto sem mudar a imagem. Botões anterior/próxima são a alternativa por teclado e toque, sem handlers `touch` duplicando `click`.
+- **Agenda e formulário:** busca sincroniza cards e tabela; favoritos atualizam `aria-pressed`, nome acessível e status. O formulário usa validação nativa e mostra o resultado local, sem enviar ou persistir dados.
+- **Ciclo de vida:** um `AbortController` remove os listeners da página em `pagehide`; em `pageshow` eles são reinstalados uma única vez, preservando os controles existentes.
+- **Consequência/limite:** favoritos e exemplos são temporários e desaparecem ao recarregar a página; não há backend nem armazenamento local. Casos manuais e evidências estão em `TESTES.md`.
+
 ## Registro de novas decisões
 
 Para cada decisão relevante, registrar data, contexto, alternativas consideradas, escolha, consequência e tarefa relacionada. Não registrar segredos ou dados pessoais.
