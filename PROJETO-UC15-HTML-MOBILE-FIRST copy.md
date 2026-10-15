@@ -147,14 +147,13 @@ Console fica sem erros no fluxo principal. Relaciona A15.
 
 ### T08 — Usar jQuery ou biblioteca com justificativa
 
-- [ ] Escolher uma interação pequena e isolada para implementar com jQuery 4.
-- [ ] Usar delegação, propriedades atuais e namespace de eventos quando necessário.
-- [ ] Evitar adicionar biblioteca para recurso já resolvido de forma mais simples.
-- [ ] Registrar versão, licença, manutenção, tamanho, alternativa e plano de remoção.
-- [ ] Não usar jQuery Mobile ou biblioteca arquivada como base do produto.
+- [x] Escolher uma interação pequena e isolada para implementar com jQuery 4.
+- [x] Usar delegação, propriedades atuais e namespace de eventos quando necessário.
+- [x] Evitar ampliar a biblioteca para recursos já resolvidos de forma mais simples; a exceção fica restrita à comparação exigida nesta etapa.
+- [x] Registrar versão, licença, manutenção, tamanho, alternativa e plano de remoção.
+- [x] Não usar jQuery Mobile ou biblioteca arquivada como base do produto.
 
-**Aceite:** a funcionalidade tem requisito explícito, não duplica listeners e pode ser
-comparada com uma implementação nativa. Relaciona A16.
+**Aceite:** a limpeza de status do formulário usa um único handler delegado namespaced, exercitado após o ciclo de vida da página; a alternativa nativa e o custo da dependência estão registrados em `DECISOES.md`. Relaciona A16.
 
 ### T09 — Auditar acessibilidade, SEO e desempenho
 
