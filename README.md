@@ -66,6 +66,10 @@ A agenda pode ser filtrada e favoritada; a galeria tem controles por botão e ge
 
 jQuery 4.0.0 local é usado somente para limpar a mensagem de estado do formulário quando um campo é editado, com delegação e evento namespaced. Os demais fluxos continuam nativos ou usam Bootstrap. A biblioteca e a licença MIT estão versionadas em `prototipo/assets/vendor/jquery-4.0.0/`; o protótipo permanece offline. Consulte `DECISOES.md` para custo, alternativa e plano de remoção, e `TESTES.md` para a validação.
 
+## T09 — Auditoria local
+
+A auditoria corrigiu contraste do botão e foco do link de salto, revisou metadados/âncoras e elevou a prioridade da imagem hero. O relatório registra resultados e limites: o navegador integrado não expôs LCP e não há métricas de campo sem URL publicada. Consulte `docs/relatorio-final.md` e `TESTES.md`.
+
 ## Estrutura do repositório
 
 ```text
