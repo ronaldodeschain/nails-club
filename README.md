@@ -62,6 +62,10 @@ O cabeçalho usa Flexbox; o destaque e a galeria usam Grid responsivo. As imagen
 
 A agenda pode ser filtrada e favoritada; a galeria tem controles por botão e gesto Pointer Events; o formulário valida os campos apenas no navegador, sem enviar nem armazenar dados. O protótipo pode ser aberto offline em `prototipo/index.html`. Consulte `TESTES.md` para os casos exercitados e as verificações ainda pendentes em aparelho físico.
 
+## T08 — jQuery delimitado
+
+jQuery 4.0.0 local é usado somente para limpar a mensagem de estado do formulário quando um campo é editado, com delegação e evento namespaced. Os demais fluxos continuam nativos ou usam Bootstrap. A biblioteca e a licença MIT estão versionadas em `prototipo/assets/vendor/jquery-4.0.0/`; o protótipo permanece offline. Consulte `DECISOES.md` para custo, alternativa e plano de remoção, e `TESTES.md` para a validação.
+
 ## Estrutura do repositório
 
 ```text

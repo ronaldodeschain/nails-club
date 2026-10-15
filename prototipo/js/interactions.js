@@ -258,9 +258,10 @@ function initializeContactForm(controller) {
         status.textContent = "Revise os campos obrigatórios antes de continuar.";
     }, { capture: true, signal: controller.signal });
 
-    form.addEventListener("input", () => {
+    $(form).on("input.t08", "input, textarea", () => {
         status.textContent = "";
-    }, { signal: controller.signal });
+    });
+    controller.signal.addEventListener("abort", () => $(form).off(".t08"), { once: true });
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();

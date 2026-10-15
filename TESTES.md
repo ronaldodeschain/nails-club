@@ -76,6 +76,18 @@ Abra o protótipo local no navegador integrado. Os testes com Pointer Events de 
 
 Abra `prototipo/index.html` diretamente em um navegador. Não é necessário instalar dependências nem iniciar servidor para o protótipo estático atual.
 
+## Verificações de T08
+
+Abra `prototipo/index.html` localmente. jQuery 4.0.0 e a licença MIT são arquivos locais; não deve haver requisição externa.
+
+| Caso | Procedimento | Resultado esperado | Estado |
+| --- | --- | --- | --- |
+| Limpeza delegada | Produzir uma mensagem no status do formulário e editar um campo | O status é limpo; a entrada não dispara envio nem muda outros estados | Concluído no navegador integrado |
+| Ciclo de vida namespaced | Disparar `pagehide` e `pageshow`, depois editar um campo | Há exatamente um handler `t08`, a limpeza funciona e não há erro no console | Concluído no navegador integrado |
+| Execução offline | Abrir o arquivo local e conferir a origem do script | jQuery 4.0.0 carrega do diretório local, sem dependência de CDN | Concluído no navegador integrado |
+
+Registro de execução: 15/10/2026, Chrome integrado no VS Code (versão não exposta). jQuery `4.0.0`; status inválido apareceu, foi limpo ao editar, e após o ciclo de vida permaneceu um handler namespaced; console sem erros.
+
 ## Registro de resultados
 
 | Data | Navegador/versão | Casos executados | Resultado/evidência |

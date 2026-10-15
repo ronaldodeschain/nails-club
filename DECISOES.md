@@ -63,3 +63,15 @@
 ## Registro de novas decisões
 
 Para cada decisão relevante, registrar data, contexto, alternativas consideradas, escolha, consequência e tarefa relacionada. Não registrar segredos ou dados pessoais.
+
+## D-008 — jQuery 4 em uma interação delimitada
+
+- **Data:** 15/10/2026.
+- **Status:** implementada em `prototipo/js/interactions.js`; verificação em `TESTES.md`.
+- **Contexto:** T08 exige comparar uma interação pequena com a implementação nativa, sem migrar os demais fluxos nem duplicar listeners.
+- **Escolha:** o listener que limpa o status do formulário ao editar um campo usa jQuery 4.0.0 com delegação no formulário e namespace `input.t08`. A validação, o envio local, a agenda, a galeria e os componentes Bootstrap continuam nas implementações existentes.
+- **Origem/licença:** distribuição oficial minificada de `https://code.jquery.com/jquery-4.0.0.min.js`; licença MIT da versão 4.0.0 em `prototipo/assets/vendor/jquery-4.0.0/LICENSE.txt`. Arquivos locais mantêm o protótipo offline. Tamanho: 78.748 bytes minificados e licença de 1.097 bytes.
+- **Alternativa:** um listener nativo de `input` no formulário é menor e não adiciona dependência; permanece uma alternativa válida se a comparação acadêmica deixar de ser necessária.
+- **Manutenção:** conferir releases e avisos oficiais antes de atualizações, testar os navegadores-alvo e atualizar o arquivo e a licença em conjunto.
+- **Remoção:** retirar a chamada jQuery namespaced e seu `off` do ciclo de vida, restaurar um listener nativo com `AbortSignal` e remover a tag do HTML e a pasta `prototipo/assets/vendor/jquery-4.0.0/`.
+- **Consequência:** adiciona 78.748 bytes locais para uma ação que seria trivial em JavaScript nativo; não se justifica ampliar jQuery a outros fluxos. Relaciona T08 e A16.
