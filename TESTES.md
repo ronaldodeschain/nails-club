@@ -88,6 +88,23 @@ Abra `prototipo/index.html` localmente. jQuery 4.0.0 e a licença MIT são arqui
 
 Registro de execução: 15/10/2026, Chrome integrado no VS Code (versão não exposta). jQuery `4.0.0`; status inválido apareceu, foi limpo ao editar, e após o ciclo de vida permaneceu um handler namespaced; console sem erros.
 
+## Verificações de T09
+
+Condições: 15/10/2026, Chrome integrado no VS Code (versão não exposta), Windows, servidor PHP 8.5.5 em `127.0.0.1`, viewport efetivo de 320x640 CSS px, DPR 1,25 e sem throttling de CPU/rede. A emulação não substitui aparelho ou leitor de tela reais.
+
+| Caso | Procedimento | Resultado observado | Estado |
+| --- | --- | --- | --- |
+| Jornada por teclado | Tab/Enter do link de salto à agenda; filtrar e favoritar sem mouse | Foco chega ao `<main>` e à seção Agenda; filtro e favorito operam por teclado; sem erros no console | Concluído no navegador integrado |
+| Árvore acessível | Inspecionar snapshot da página em viewport móvel e desktop | Um `<h1>`, landmarks nomeados, controles com nomes, imagens com `alt`; lista/tabela responsiva expõe a apresentação do breakpoint | Concluído no navegador integrado; leitor de tela real pendente |
+| Contraste e salto | Calcular contraste do botão e verificar foco após ativar link de salto | Botão: 1,79:1 antes e 7,37:1 depois; foco do salto: `body` antes e `<main id="conteudo">` depois | Correções verificadas no navegador integrado |
+| SEO e conteúdo responsivo | Conferir metadados, âncoras e conteúdo nos dois breakpoints | `title` e `description` presentes; âncoras internas resolvidas; mesmo conteúdo semântico no mobile/desktop; canonical aguarda URL pública; meta robots ausente (padrão index/follow) | Revisão concluída; canonical/política de publicação pendentes |
+| Mídia e cadeia crítica | Inspecionar imagens e carregamento de recursos | Imagens têm `width`, `height` e `alt`; hero selecionou `entrada-do-club-480.jpg` (48.655 bytes) e recebe `fetchpriority="high"`; galeria usa `loading="lazy"`; scripts locais têm `defer` | Concluído por inspeção e navegador |
+| LCP de laboratório | Observar `largest-contentful-paint` e Paint Timing em três recargas locais | Nenhuma entrada LCP/Paint fornecida pelo navegador integrado, mesmo com aba visível; não foi atribuído valor | Não mensurável neste ambiente |
+| INP e CLS de laboratório | Observar Event Timing durante filtro/favorito por teclado e Layout Shift | Event Timing observado entre 24–32 ms (máximo 32 ms nesta pequena amostra); CLS 0,000, sem deslocamentos qualificáveis observados | Proxy de laboratório; não é INP de campo |
+| Métrica de campo e repetição | Consultar CrUX após publicar e comparar antes/depois em ambiente controlado | Sem URL publicada/dados de campo; não há comparação numérica LCP/INP/CLS antes/depois | Pendente de publicação e ferramenta de medição adequada |
+
+Limites: os tempos de Event Timing são amostras sintéticas de poucas interações, não o p75 de INP de usuários; CLS zero não prova estabilidade em outros aparelhos/rede; ausência de LCP é limitação do navegador de teste. Métricas de campo e comparação repetível devem ser feitas após publicação, com condições e cache registrados.
+
 ## Registro de resultados
 
 | Data | Navegador/versão | Casos executados | Resultado/evidência |

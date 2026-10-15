@@ -157,15 +157,17 @@ Console fica sem erros no fluxo principal. Relaciona A15.
 
 ### T09 — Auditar acessibilidade, SEO e desempenho
 
-- [ ] Executar jornada somente por teclado e inspecionar a árvore de acessibilidade.
-- [ ] Registrar achados WCAG 2.2 com critério, evidência, impacto e correção.
-- [ ] Revisar title, description, canonical, robots, links e conteúdo mobile equivalente.
+- [x] Executar jornada somente por teclado e inspecionar a árvore de acessibilidade.
+- [x] Registrar achados WCAG 2.2 com critério, evidência, impacto e correção.
+- [x] Revisar title, description, canonical, robots, links e conteúdo mobile equivalente; canonical aguarda a URL pública.
 - [ ] Medir LCP, INP e CLS em condições registradas, distinguindo laboratório e campo.
-- [ ] Corrigir dimensões de mídia, prioridade, carregamento, cadeia crítica e trabalho JS.
+- [x] Corrigir dimensões/prioridade/carregamento de mídia e revisar a cadeia crítica e o trabalho JS.
 - [ ] Repetir medidas comparáveis e registrar limites das ferramentas automáticas.
 
 **Aceite:** `docs/relatorio-final.md` contém antes/depois e não promete conformidade,
 ranking ou ganho universal com base em pontuação isolada. Relaciona A17–A19.
+
+**Pendência de aceite:** LCP não foi exposto pelo navegador integrado e não há URL/dados de campo; a comparação repetível de Core Web Vitals antes/depois depende de publicação e ferramenta compatível. Ver resultados e limites em `docs/relatorio-final.md` e `TESTES.md`.
 
 ### T10 — Portar e publicar em WordPress
 

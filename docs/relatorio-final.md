@@ -1,34 +1,55 @@
 # Relatório final
 
-> Estado: pendente. Preencher com evidências verificadas após a implementação e a publicação; não tratar itens planejados como resultados.
+> Estado: auditoria T09 executada localmente em 15/10/2026. O protótipo não está publicado; os resultados abaixo não são métricas de campo nem declaração de conformidade.
 
 ## Identificação da entrega
 
-- URL publicada: a definir.
-- Tag/release: a definir.
-- Commit correspondente: a definir.
-- Data da verificação: a definir.
+- URL publicada: ainda não definida.
+- Tag/release: pendente.
+- Commit correspondente: pendente.
+- Data da verificação local: 15/10/2026.
 
 ## Escopo entregue
 
-A preencher com tarefas concluídas e links para suas evidências.
+Auditoria local de acessibilidade, SEO e desempenho do protótipo. Corrigidos o contraste do botão de envio e o foco do link de salto; a imagem hero recebeu prioridade alta. Não foi publicada uma URL.
 
 ## Acessibilidade e compatibilidade
 
-A preencher com procedimento, navegadores/dispositivos, resultados, limitações e correções realizadas.
+Condição: Chrome integrado no VS Code (versão não exposta), Windows, viewport efetivo de 320x640 CSS px e DPR 1,25. Uma jornada por teclado percorreu o link de salto, a agenda, o filtro e o favorito. O snapshot mostrou um `<h1>`, landmarks nomeados, controles identificáveis e imagens com textos alternativos. A página alterna lista/tabela por breakpoint sem trocar a ordem do documento. Leitor de tela, zoom real em aparelho e hardware touch não foram avaliados.
 
-## Desempenho
+| Critério WCAG 2.2 | Evidência e impacto | Correção/resultado |
+| --- | --- | --- |
+| 1.4.3 Contraste (Mínimo), AA | Texto `#e0e0e0` sobre o início ciano `#00b3ff` do gradiente do botão: 1,79:1; abaixo de 4,5:1 para texto normal | Fundo escuro/texto ciano no estado normal e fundo ciano/texto escuro no hover; contraste medido de 7,37:1 |
+| 2.4.1 Ignorar Blocos, A | Ativar “Pular para o conteúdo” deixava o foco em `body#topo`, não no conteúdo principal | `<main id="conteudo" tabindex="-1">`; após a correção o foco chega ao main |
 
-A preencher com condições de medição, valores antes/depois e limitações das ferramentas.
+## SEO e desempenho
+
+`title` e `meta description` estão presentes; as âncoras internas resolvem e o conteúdo semântico é equivalente entre layouts móveis e desktop. Não há meta robots (o padrão permite indexação e seguimento de links). `canonical` permanece ausente porque a URL pública oficial ainda não existe; definir um endereço local como canonical seria incorreto.
+
+### Medição de laboratório
+
+Condição: servidor PHP 8.5.5 em `127.0.0.1`, Chrome integrado no VS Code (versão não exposta), 320x640 CSS px, DPR 1,25, sem throttling de CPU/rede. A imagem hero selecionou `entrada-do-club-480.jpg` (48.655 bytes), tem dimensões intrínsecas e `fetchpriority="high"`; as imagens da galeria têm dimensões e `loading="lazy"`. CSS e scripts são locais; scripts usam `defer`.
+
+| Métrica | Resultado local | Antes/depois e limite |
+| --- | --- | --- |
+| LCP | Nenhuma entrada LCP/Paint observada nas três recargas, mesmo com aba visível | Sem valor reportável; a prioridade da imagem mudou de implícita para `high`, mas o delta de LCP não foi medido |
+| INP | Event Timing entre 24 e 32 ms; máximo observado de 32 ms no pequeno fluxo de teclado | Proxy sintético, não p75 de campo nem INP oficial; amostra curta |
+| CLS | 0,000; nenhum deslocamento qualificável observado | Laboratório local; não representa outras redes/dispositivos |
+| `loadEventEnd` | 51, 59 e 75 ms em recargas locais sequenciais | Medida auxiliar, não Core Web Vital; cache/throttling do ambiente não representam produção |
+
+Não há URL publicada nem dados CrUX. A comparação numérica antes/depois de LCP, INP e CLS permanece pendente; não se infere ganho universal nem ranking a partir destes dados.
 
 ## Testes
 
-A preencher com suíte executada, resultado, falhas abertas e instruções para reprodução.
+Jornada por teclado, snapshot da árvore acessível, contraste, links internos, metadados e recursos responsivos foram verificados no navegador integrado. Os procedimentos e resultados detalhados estão em `TESTES.md`. Não há suíte automatizada configurada; leitor de tela e aparelho físico permanecem pendentes.
 
 ## Limitações e débitos conhecidos
 
-A preencher; não omitir requisitos pendentes ou falhas conhecidas.
+- LCP não foi exposto pela API do navegador integrado; não há comparação numérica de Web Vitals antes/depois.
+- Event Timing é uma amostra sintética curta, não dado de campo; CLS 0,000 não garante estabilidade em todos os ambientes.
+- Canonical depende da URL oficial; leitor de tela, celular real e dados CrUX ainda não foram avaliados.
+- Esta auditoria não declara conformidade WCAG nem substitui revisão manual completa.
 
 ## Rollback
 
-A preencher com a versão anterior e o procedimento validado de retorno.
+Não aplicável à auditoria local; a versão publicada ainda não existe. As correções estão identificadas no histórico da tarefa T09.
