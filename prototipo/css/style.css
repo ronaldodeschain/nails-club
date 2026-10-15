@@ -192,6 +192,51 @@ main > section:first-child {
     background: var(--color-bg-secondary);
 }
 
+.gallery-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-block: var(--space-md);
+}
+
+.gallery-controls p,
+.interaction-status {
+    margin-block: var(--space-sm);
+    color: var(--color-text-secondary);
+}
+
+.agenda-tools {
+    display: grid;
+    gap: var(--space-xs);
+    width: min(100%, 32rem);
+    margin-block: var(--space-md);
+}
+
+.agenda-tools label {
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+.agenda-tools .form-control {
+    min-height: 44px;
+    border-color: var(--border-color);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.agenda-tools .form-control:focus {
+    border-color: var(--color-highlight);
+    box-shadow: 0 0 0 0.25rem rgb(0 179 255 / 25%);
+}
+
+.agenda-tools p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
 h1,
 h2,
 h3 {
@@ -328,6 +373,10 @@ table {
     margin: 0;
 }
 
+.agenda-cards .favorite-button {
+    margin-top: var(--space-md);
+}
+
 .agenda-table {
     display: none;
 }
@@ -452,6 +501,12 @@ fieldset:disabled textarea {
     --bs-btn-active-border-color: var(--color-highlight);
 }
 
+.favorite-button[aria-pressed="true"] {
+    --bs-btn-color: var(--color-bg-primary);
+    --bs-btn-bg: var(--color-highlight);
+    --bs-btn-border-color: var(--color-highlight);
+}
+
 button.btn:not(:disabled):hover {
     transform: none;
     background-color: var(--bs-btn-hover-bg);
@@ -504,6 +559,10 @@ body > footer p {
     .agenda-table {
         display: block;
     }
+
+    .gallery-controls {
+        display: none;
+    }
 }
 
 @media (min-width: 62rem) {
@@ -529,6 +588,22 @@ body > footer p {
 
     button {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 41.999rem) {
+    .gallery-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: var(--space-md);
+        padding-block-end: var(--space-sm);
+        scroll-snap-type: x mandatory;
+        touch-action: pan-y;
+    }
+
+    .gallery-grid figure {
+        flex: 0 0 min(88%, 34rem);
+        scroll-snap-align: start;
     }
 }
 

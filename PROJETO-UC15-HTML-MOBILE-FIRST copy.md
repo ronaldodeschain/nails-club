@@ -135,12 +135,12 @@ limites de breakpoint; `DECISOES.md` registra custo e escolha. Relaciona A13–A
 
 ### T07 — Criar interações JavaScript nativas
 
-- [ ] Consultar e alterar DOM sem inserir texto do usuário como HTML.
-- [ ] Usar eventos sem duplicar ação entre `touch` e `click`.
-- [ ] Aplicar delegação a uma lista com itens criados dinamicamente.
-- [ ] Implementar gesto com Pointer Events, cancelamento e alternativa por botão.
-- [ ] Atualizar nome, estado e mensagens acessíveis após cada interação.
-- [ ] Desmontar listeners quando o ciclo de vida exigir.
+- [x] Consultar e alterar DOM sem inserir texto do usuário como HTML.
+- [x] Usar eventos sem duplicar ação entre `touch` e `click`.
+- [x] Aplicar delegação a uma lista com itens criados dinamicamente.
+- [x] Implementar gesto com Pointer Events, cancelamento e alternativa por botão.
+- [x] Atualizar nome, estado e mensagens acessíveis após cada interação.
+- [x] Desmontar listeners quando o ciclo de vida exigir.
 
 **Aceite:** menu, filtro/favorito, galeria e formulário operam por teclado, mouse e toque;
 Console fica sem erros no fluxo principal. Relaciona A15.
