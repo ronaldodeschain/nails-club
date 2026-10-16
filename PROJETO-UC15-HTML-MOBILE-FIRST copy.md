@@ -56,55 +56,56 @@ publicada.
 
 ### T00 — Preparar repositório e fluxo de trabalho
 
-- [ ] Criar o repositório do produto com `README.md`, `.gitignore` e licença definida.
-- [ ] Registrar objetivo, público, três tarefas críticas e escopo que ficou de fora.
+- [x] Criar o repositório do produto com `README.md`, `.gitignore` e licença definida.
+- [x] Registrar objetivo, público, três tarefas críticas e escopo que ficou de fora.
 - [ ] Trabalhar em branches por etapa e integrar por Pull Request revisável.
 - [ ] Manter commits pequenos, mensagens descritivas e `main` executável.
-- [ ] Documentar comandos para abrir, testar e gerar a entrega.
+- [x] Documentar comandos para abrir o protótipo e executar os testes.
+- [ ] Documentar comando/roteiro reproduzível para gerar e publicar a entrega.
 
 **Aceite:** clone limpo, instruções reproduzíveis e histórico que permite localizar cada
 decisão sem arquivos secretos ou dependências geradas.
 
 ### T01 — Modelar conteúdo, HTML semântico e viewport
 
-- [ ] Criar landmarks e hierarquia de títulos coerentes.
-- [ ] Usar elementos nativos para links, botões, listas, tabelas e formulários.
-- [ ] Configurar `meta viewport` sem bloquear zoom.
-- [ ] Entregar conteúdo e tarefas essenciais antes de CSS e JavaScript.
-- [ ] Registrar fallback e melhoria progressiva de ao menos um recurso.
+- [x] Criar landmarks e hierarquia de títulos coerentes.
+- [x] Usar elementos nativos para links, botões, listas, tabelas e formulários.
+- [x] Configurar `meta viewport` sem bloquear zoom.
+- [x] Entregar conteúdo e tarefas essenciais antes de CSS e JavaScript.
+- [x] Registrar fallback e melhoria progressiva de ao menos um recurso.
 
 **Aceite:** conteúdo compreensível sem CSS, navegação acionável sem JavaScript e zoom
 permitido. Relaciona A1–A3.
 
 ### T02 — Construir o sistema CSS
 
-- [ ] Definir tokens de cor, espaço, tipografia, borda e movimento com custom properties.
-- [ ] Demonstrar cascata, herança e especificidade sem `!important` global.
-- [ ] Usar seletores complexos, pseudo-classes e pseudo-elementos com função clara.
-- [ ] Combinar unidades relativas e absolutas de acordo com o requisito.
-- [ ] Preservar foco, contraste, zoom e conteúdo em estados interativos.
+- [x] Definir tokens de cor, espaço, tipografia, borda e movimento com custom properties.
+- [x] Demonstrar cascata, herança e especificidade sem `!important` global.
+- [x] Usar seletores complexos, pseudo-classes e pseudo-elementos com função clara.
+- [x] Combinar unidades relativas e absolutas de acordo com o requisito.
+- [x] Preservar foco, contraste, zoom e conteúdo em estados interativos.
 
 **Aceite:** `DECISOES.md` aponta a origem de uma regra, justifica unidades e mostra os
 estados normal, hover, foco, ativo, inválido e desabilitado. Relaciona A4–A6.
 
 ### T03 — Montar layouts com Flexbox e Grid
 
-- [ ] Usar Flexbox em um componente unidimensional com quebra quando necessário.
-- [ ] Usar Grid na composição bidimensional principal ou em seção equivalente.
-- [ ] Evitar larguras rígidas que gerem overflow da página.
+- [x] Usar Flexbox em um componente unidimensional com quebra quando necessário.
+- [x] Usar Grid na composição bidimensional principal ou em seção equivalente.
+- [x] Evitar larguras rígidas que gerem overflow da página.
 - [ ] Testar conteúdo curto, longo, vazio e repetido.
-- [ ] Manter ordem visual compatível com leitura e foco.
+- [ ] Manter ordem visual compatível com leitura e foco; revisão completa com leitor de tela continua pendente.
 
 **Aceite:** layout funciona a partir de 320 CSS px, sem rolagem horizontal da página e
 sem alterar a ordem semântica para obter composição visual. Relaciona A7–A8.
 
 ### T04 — Aplicar linguagem visual e movimento acessível
 
-- [ ] Definir cores em formatos adequados e verificar contraste dos estados.
+- [x] Definir cores em formatos adequados e verificar contraste dos estados.
 - [ ] Usar gradiente como apresentação, nunca como única fonte de informação.
-- [ ] Aplicar `transform` sem supor mudança no fluxo do documento.
-- [ ] Usar `transition`/`animation` com propósito e duração justificável.
-- [ ] Respeitar `prefers-reduced-motion` e oferecer estado final compreensível.
+- [x] Aplicar `transform` sem supor mudança no fluxo do documento.
+- [x] Usar `transition`/`animation` com propósito e duração justificável.
+- [x] Respeitar `prefers-reduced-motion` e oferecer estado final compreensível; ver teste automatizado em `TESTES.md`.
 
 **Aceite:** nenhum dado depende apenas de cor ou movimento; foco não é removido e a
 interface continua utilizável com movimento reduzido. Relaciona A9–A10.
@@ -116,7 +117,7 @@ interface continua utilizável com movimento reduzido. Relaciona A9–A10.
 - [x] Entregar imagens com dimensões, `srcset`/`sizes` ou `<picture>` quando aplicável.
 - [x] Aplicar tipografia fluida com limites legíveis.
 - [x] Usar container query em um componente reutilizado em contêineres diferentes.
-- [x] Validar zoom, orientação, textos longos, teclado virtual e celular real.
+- [ ] Validar zoom real, orientação, textos longos, teclado virtual e celular físico; emulação não substitui esses testes.
 
 **Aceite:** matriz em `TESTES.md` registra dimensões e condições; não há conteúdo
 suprimido apenas para caber. Relaciona A11–A12.
@@ -171,27 +172,30 @@ ranking ou ganho universal com base em pontuação isolada. Relaciona A17–A19.
 
 ### T10 — Portar e publicar em WordPress
 
-- [ ] Registrar ambiente local, versões, banco, diferenças do host e HTTPS.
-- [ ] Separar banco, uploads, tema e plug-ins no plano de backup/restauração.
+- [x] Registrar OS, WordPress, PHP, cliente MariaDB e URL local em `CMS.md`.
+- [ ] Confirmar versão/engine do servidor de banco, diferenças do host e HTTPS.
+- [x] Documentar backup de banco, uploads, tema e plug-ins e o procedimento de restauração.
+- [ ] Executar e testar backup/restauração em instância isolada.
 - [ ] Criar usuários de teste com menor privilégio para suas tarefas.
-- [ ] Implementar tema filho sem editar arquivos do pai.
-- [ ] Enfileirar assets e usar `theme.json`/CSS com escopo conforme o tema.
-- [ ] Justificar cada plug-in por requisito, procedência, dados, impacto e rollback.
+- [x] Implementar tema filho sem editar arquivos do pai.
+- [x] Enfileirar assets e usar `theme.json`/CSS com escopo conforme o tema.
+- [x] Justificar cada plug-in por requisito, procedência, dados, impacto e rollback; nenhum plugin foi incluído porque o padrão usa Custom HTML core e não transmite nem armazena dados.
 - [ ] Implantar primeiro em staging; migrar URLs com ferramenta apropriada.
 - [ ] Publicar, executar smoke test, monitorar e manter retorno praticável.
 
-**Aceite:** `CMS.md` documenta ambiente, tema, plug-ins, usuários, backup, restauração,
-staging, produção e rollback sem revelar segredos. Relaciona A20–A21.
+**Aceite:** `CMS.md` documenta o ambiente atual, tema, plug-ins, usuários, backup,
+restauração, staging, produção e rollback sem revelar segredos. As etapas operacionais
+ainda não executadas permanecem marcadas como pendentes. Relaciona A20–A21.
 
 ### T11 — Criar plano e automação de testes
 
-- [ ] Definir riscos, tarefas e navegadores/dispositivos-alvo em `TESTES.md`.
-- [ ] Escrever scripts manuais com pré-condição, passos, esperado e observado.
-- [ ] Automatizar fluxos críticos com locators semânticos e assertions web-first.
-- [ ] Configurar projetos Chromium, Firefox, WebKit e perfis móveis relevantes.
-- [ ] Manter testes isolados e sem dependência de ordem ou atraso fixo.
-- [ ] Guardar relatório/trace de falha sem cookies, tokens ou dados pessoais.
-- [ ] Confirmar que uma mutação intencional faz o teste correspondente falhar.
+- [x] Definir riscos, tarefas e navegadores/dispositivos-alvo em `TESTES.md`.
+- [x] Escrever scripts manuais com pré-condição, passos, esperado e observado.
+- [x] Automatizar fluxos críticos com locators semânticos e assertions web-first.
+- [x] Configurar projetos Chromium, Firefox, WebKit e perfis móveis relevantes.
+- [x] Manter testes isolados e sem dependência de ordem ou atraso fixo.
+- [x] Guardar relatório/trace de falha sem cookies, tokens ou dados pessoais.
+- [x] Confirmar que uma mutação intencional faz o teste correspondente falhar.
 
 **Aceite:** outra pessoa executa a suíte, reproduz uma falha e distingue motor emulado,
 navegador de marca e aparelho real. Relaciona A22.
@@ -199,11 +203,15 @@ navegador de marca e aparelho real. Relaciona A22.
 ### T12 — Preparar release e defesa
 
 - [ ] Congelar uma versão identificável por tag.
-- [ ] Confirmar links, formulários, 404, HTTPS, console e fluxos críticos publicados.
-- [ ] Revisar README, decisões, CMS, testes e evidências.
-- [ ] Listar limitações e débitos conhecidos em vez de escondê-los.
+- [x] Auditar links locais de documentação, âncoras, imagens e erros do protótipo e fazer smoke test de `/inicio/` no XAMPP; links publicados/404/HTTPS ficam pendentes.
+- [ ] Confirmar formulários, 404, HTTPS, console e fluxos críticos no host publicado.
+- [x] Revisar README, decisões, CMS, testes e evidências locais.
+- [x] Listar limitações e débitos conhecidos em vez de escondê-los.
 - [ ] Preparar demonstração de cinco minutos e alteração ao vivo.
-- [ ] Manter uma rota de rollback para a versão anterior.
+- [x] Documentar rota de rollback em `CMS.md`.
+- [ ] Testar rollback operacional em staging antes de produção.
+
+**Limite desta etapa:** publicação, tag e demonstração foram explicitamente adiadas. Nenhuma branch, PR, merge, tag ou operação GitHub foi feita; essas ações pertencem ao responsável do repositório.
 
 **Aceite:** URL publicada, tag, relatório e suíte apontam para o mesmo estado do produto;
 o projeto pode ser demonstrado, testado e revertido.

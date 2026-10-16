@@ -38,6 +38,8 @@ Thumbs.db
 .cache/
 *.cache
 coverage/
+playwright-report/
+test-results/
 
 # Misc
 *.pid

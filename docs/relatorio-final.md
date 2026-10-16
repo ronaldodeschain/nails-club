@@ -1,13 +1,14 @@
 # Relatório final
 
-> Estado: auditoria T09 executada localmente em 15/10/2026. O protótipo não está publicado; os resultados abaixo não são métricas de campo nem declaração de conformidade.
+> Estado: auditoria T09 executada localmente em 15/10/2026; suíte T11 e revisão local T12 atualizadas em 16/10/2026. O protótipo não está publicado; os resultados abaixo não são métricas de campo nem declaração de conformidade.
 
 ## Identificação da entrega
 
 - URL publicada: ainda não definida.
 - Tag/release: pendente.
 - Commit correspondente: pendente.
-- Data da verificação local: 15/10/2026.
+- Data das medições T09: 15/10/2026.
+- Data da revisão de testes/documentação T11/T12: 16/10/2026.
 
 ## Escopo entregue
 
@@ -41,15 +42,17 @@ Não há URL publicada nem dados CrUX. A comparação numérica antes/depois de 
 
 ## Testes
 
-Jornada por teclado, snapshot da árvore acessível, contraste, links internos, metadados e recursos responsivos foram verificados no navegador integrado. Os procedimentos e resultados detalhados estão em `TESTES.md`. Não há suíte automatizada configurada; leitor de tela e aparelho físico permanecem pendentes.
+Jornada por teclado, snapshot da árvore acessível, contraste, links internos, metadados e recursos responsivos foram verificados no navegador integrado. Em 16/10/2026, a suíte Playwright executou 40/40 casos em Chromium, Firefox, WebKit, Pixel 7 emulado e iPhone 13 emulado; a mutation check detectou uma remoção intencional da mensagem de sucesso do formulário. Os testes cobrem o protótipo estático servido localmente, não autenticam nem validam a instalação WordPress/XAMPP. Os procedimentos e resultados detalhados estão em `TESTES.md`.
 
 ## Limitações e débitos conhecidos
 
 - LCP não foi exposto pela API do navegador integrado; não há comparação numérica de Web Vitals antes/depois.
 - Event Timing é uma amostra sintética curta, não dado de campo; CLS 0,000 não garante estabilidade em todos os ambientes.
 - Canonical depende da URL oficial; leitor de tela, celular real e dados CrUX ainda não foram avaliados.
+- A instalação WordPress/XAMPP ainda precisa de smoke test após a atualização final do tema; banco/restauração, staging, HTTPS e release hospedado ainda não foram ensaiados.
+- A origem/licença das imagens ainda não está documentada, portanto preview público e publicação permanecem bloqueados até esclarecer os direitos de uso.
 - Esta auditoria não declara conformidade WCAG nem substitui revisão manual completa.
 
 ## Rollback
 
-Não aplicável à auditoria local; a versão publicada ainda não existe. As correções estão identificadas no histórico da tarefa T09.
+Não aplicável à auditoria T09, que foi local; a versão publicada ainda não existe. O procedimento de rollback da futura implantação está documentado em `CMS.md`, mas aguarda backup restaurado e ensaio em staging.

@@ -608,30 +608,23 @@ body > footer p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .navbar-collapse,
-    .modal.fade .modal-dialog {
-        transition: none;
-    }
-}
-
-@media(prefers-reduced-motion: reduce){
-    *{
-        animation: none;
-        transition: none;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
-
     }
 
-    button {
-        transition: background-color 0.3s ease,transform 0.3s ease;
+    *,
+    *::before,
+    *::after,
+    button,
+    .navbar-collapse,
+    .modal.fade .modal-dialog {
+        animation: none;
+        scroll-behavior: auto;
+        transition: none;
     }
 
     button:not(:disabled):hover,
     button:not(:disabled):active {
-        transform: scale(1.05);
+        transform: none;
     }
 }

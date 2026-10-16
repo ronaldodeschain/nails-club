@@ -1,0 +1,610 @@
+.nails-club-home {
+    --club-bg: #0a0a0a;
+    --club-panel: #1a1a1a;
+    --club-text: #e0e0e0;
+    --club-muted: #a0a0a0;
+    --club-cyan: #00b3ff;
+    --club-violet: #9d4edd;
+    color: var(--club-text);
+}
+
+.nails-club-home > .wp-block-group {
+    margin-block: clamp(2rem, 6vw, 4rem);
+}
+
+.nails-club-home__quick-links {
+    margin-block: 1rem;
+    padding-block: 0.75rem;
+    border-block: 1px solid #5a5a5a;
+}
+
+.nails-club-home__quick-links p {
+    margin: 0;
+}
+
+.nails-club-home__quick-links a {
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.5rem 0.25rem;
+}
+
+.nails-club-home__section {
+    margin-block: clamp(2rem, 6vw, 4rem);
+    padding-block-end: clamp(1.5rem, 4vw, 2.5rem);
+    border-bottom: 1px solid #5a5a5a;
+    scroll-margin-top: 1rem;
+}
+
+.nails-club-home__section h2 {
+    margin-block-start: 0;
+}
+
+.nails-club-home__section > .wp-block-columns {
+    margin-block: 1.5rem;
+}
+
+.nails-club-home .nails-club-home__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+    padding: clamp(1rem, 4vw, 2rem);
+    border: 1px solid #5a5a5a;
+    border-left: 4px solid var(--club-violet);
+    border-radius: 4px;
+    background: var(--club-panel);
+}
+
+.nails-club-home__hero > .wp-block-column {
+    min-width: 0;
+}
+
+.nails-club-home h1,
+.nails-club-home h2,
+.nails-club-home h3 {
+    color: var(--club-text);
+    line-height: 1.2;
+}
+
+.nails-club-home h1 {
+    max-width: 22ch;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.nails-club-home h2 {
+    border-left: 3px solid var(--club-cyan);
+    padding-inline-start: 0.75rem;
+}
+
+.nails-club-home .wp-block-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.nails-club-home__gallery > .wp-block-column {
+    min-width: 0;
+}
+
+.nails-club-home__gallery figure {
+    margin: 0;
+}
+
+.nails-club-home .nails-club-home__cards > .wp-block-column {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #5a5a5a;
+    border-left: 3px solid var(--club-violet);
+    border-radius: 4px;
+    background: var(--club-panel);
+}
+
+.nails-club-home details {
+    margin-block: 1.5rem;
+    padding: 1rem;
+    border-left: 2px solid var(--club-violet);
+    background: var(--club-panel);
+}
+
+.nails-club-home summary {
+    min-height: 44px;
+    color: var(--club-text);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.nails-club-home summary:hover {
+    color: var(--club-cyan);
+}
+
+.nails-club-home .wp-block-button__link {
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--club-cyan);
+    border-radius: 4px;
+    background: var(--club-panel);
+    color: var(--club-cyan);
+    font-weight: 700;
+}
+
+.nails-club-home .wp-block-button__link:hover {
+    background: var(--club-cyan);
+    color: var(--club-bg);
+}
+
+.nails-club-home a:focus-visible,
+.nails-club-home button:focus-visible {
+    outline: 3px solid var(--club-cyan);
+    outline-offset: 3px;
+}
+
+.nails-club-home figcaption {
+    color: var(--club-muted);
+}
+
+.nails-club-home__footer-note {
+    margin-block: 2rem 0;
+    padding-block-start: 1rem;
+    border-top: 1px solid #5a5a5a;
+    color: var(--club-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nails-club-home *,
+    .nails-club-home *::before,
+    .nails-club-home *::after {
+        scroll-behavior: auto;
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+    }
+}
+
+.nails-club-home {
+    width: min(100% - 2rem, 68rem);
+    margin-inline: auto;
+    font-family: Georgia, serif;
+}
+
+.nails-club-home p,
+.nails-club-home li,
+.nails-club-home td,
+.nails-club-home th,
+.nails-club-home label,
+.nails-club-home summary {
+    color: var(--club-text);
+}
+
+.nails-club-home a:link {
+    color: var(--club-cyan);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.nails-club-home a:visited {
+    color: #c9a3e8;
+}
+
+.nails-club-home a:hover {
+    color: var(--club-text);
+    text-decoration-color: var(--club-violet);
+}
+
+.nails-club-home a:focus-visible,
+.nails-club-home button:focus-visible,
+.nails-club-home input:focus-visible,
+.nails-club-home textarea:focus-visible,
+.nails-club-home summary:focus-visible {
+    outline: 3px solid var(--club-cyan);
+    outline-offset: 3px;
+}
+
+.nails-club-home .skip-link {
+    position: absolute;
+    z-index: 10;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.nails-club-home .skip-link:focus {
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1rem;
+    clip: auto;
+    background: var(--club-panel);
+}
+
+.nails-club-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+.nails-club-header .navbar-brand {
+    margin-inline-end: auto;
+    color: var(--club-text);
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nails-club-header .navbar-toggler,
+.nails-club-home .agenda-action,
+.nails-club-home .favorite-button,
+.nails-club-home form button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--club-cyan);
+    border-radius: 4px;
+    background: var(--club-panel);
+    color: var(--club-cyan);
+    cursor: pointer;
+    font: 700 1rem Arial, sans-serif;
+}
+
+.nails-club-header .navbar-toggler {
+    font-size: 1.25rem;
+}
+
+.nails-club-header .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nails-club-header .navbar-nav li {
+    min-width: 0;
+}
+
+.nails-club-home:not(.js-ready) .js-only {
+    display: none !important;
+}
+
+.nails-club-header .nav-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.nails-club-home.js-ready .navbar-collapse:not(.is-open) {
+    display: none;
+}
+
+.nails-club-home .nails-club-home__main > .wp-block-group {
+    margin-block: 2rem;
+    padding-block: 2rem;
+    border-bottom: 1px solid #5a5a5a;
+    scroll-margin-top: 1rem;
+}
+
+.nails-club-home .nails-club-home__main > .wp-block-group:first-child {
+    margin-block: 2rem;
+    padding: 2rem;
+    border: 1px solid #5a5a5a;
+    border-left: 4px solid var(--club-violet);
+    border-radius: 4px;
+    background: var(--club-panel);
+}
+
+.nails-club-home h1,
+.nails-club-home h2,
+.nails-club-home h3 {
+    font-family: Georgia, serif;
+}
+
+.nails-club-home h1 {
+    margin-block-start: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.nails-club-home h2 {
+    border-inline-start: 3px solid var(--club-cyan);
+    padding-inline-start: 0.75rem;
+}
+
+.nails-club-home__feature-list {
+    display: grid;
+    gap: 1rem;
+    padding-inline-start: 1.5rem;
+}
+
+.nails-club-home__feature-list li::marker {
+    color: var(--club-cyan);
+}
+
+.nails-club-home__gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-block-end: 0.5rem;
+    scroll-snap-type: x mandatory;
+    touch-action: pan-y;
+}
+
+.nails-club-home__gallery > .wp-block-column {
+    flex: 0 0 min(88%, 34rem);
+    scroll-snap-align: start;
+}
+
+.nails-club-home__gallery figure {
+    padding: 0.5rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+    background: var(--club-panel);
+}
+
+.nails-club-home__gallery figcaption,
+.nails-club-home .wp-block-image figcaption {
+    padding-top: 0.25rem;
+    color: var(--club-muted);
+    font-size: 0.9rem;
+}
+
+.nails-club-home .interaction-status {
+    margin-block: 0.5rem;
+    color: var(--club-muted);
+}
+
+.nails-club-home .agenda-tools {
+    display: none;
+    gap: 0.25rem;
+    width: min(100%, 32rem);
+    margin-block: 1rem;
+}
+
+.nails-club-home.js-ready .agenda-tools {
+    display: grid;
+}
+
+.nails-club-home .agenda-tools label {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+}
+
+.nails-club-home .agenda-tools input,
+.nails-club-home form input,
+.nails-club-home form textarea {
+    display: block;
+    width: min(100%, 32rem);
+    min-height: 44px;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+    background: var(--club-bg);
+    color: var(--club-text);
+    font: inherit;
+}
+
+.nails-club-home form textarea {
+    resize: vertical;
+}
+
+.nails-club-home .agenda-tools p {
+    margin: 0;
+    color: var(--club-muted);
+    font-size: 0.9rem;
+}
+
+.nails-club-home .agenda-action {
+    margin: 0.25rem 0.5rem 0.75rem 0;
+}
+
+.nails-club-home .agenda-action:hover,
+.nails-club-home .favorite-button:hover,
+.nails-club-home form button:hover {
+    background: var(--club-cyan);
+    color: var(--club-bg);
+}
+
+.nails-club-home .agenda-cards {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nails-club-home .agenda-cards > li {
+    min-width: 0;
+}
+
+.nails-club-home .agenda-cards article {
+    padding: 1rem;
+    border: 1px solid #5a5a5a;
+    border-left: 3px solid var(--club-violet);
+    border-radius: 4px;
+    background: var(--club-panel);
+}
+
+.nails-club-home .agenda-cards h3 {
+    margin-block-start: 0;
+    font-size: 1.15rem;
+}
+
+.nails-club-home .agenda-cards dl {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.nails-club-home .agenda-cards dt {
+    color: var(--club-muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.nails-club-home .agenda-cards dd {
+    margin: 0;
+}
+
+.nails-club-home .agenda-cards .favorite-button {
+    margin-top: 1rem;
+}
+
+.nails-club-home .agenda-table {
+    display: none;
+    overflow-x: auto;
+}
+
+.nails-club-home table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.nails-club-home caption {
+    margin-bottom: 0.5rem;
+    color: var(--club-muted);
+    text-align: left;
+}
+
+.nails-club-home th,
+.nails-club-home td {
+    padding: 0.5rem;
+    border: 1px solid #5a5a5a;
+    overflow-wrap: anywhere;
+}
+
+.nails-club-home thead th {
+    background: var(--club-panel);
+    font-family: Arial, sans-serif;
+}
+
+.nails-club-home tbody tr:nth-child(even) {
+    background: var(--club-panel);
+}
+
+.nails-club-home fieldset {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+}
+
+.nails-club-home legend {
+    padding-inline: 0.25rem;
+    color: var(--club-muted);
+}
+
+.nails-club-home form label {
+    display: inline-block;
+    margin-block-end: 0.25rem;
+}
+
+.nails-club-home fieldset:disabled input,
+.nails-club-home fieldset:disabled textarea {
+    background: #252525;
+    color: var(--club-muted);
+    cursor: not-allowed;
+}
+
+.nails-club-home .agenda-dialog {
+    width: min(calc(100% - 2rem), 36rem);
+    padding: 1.5rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+    background: var(--club-panel);
+    color: var(--club-text);
+}
+
+.nails-club-home .agenda-dialog::backdrop {
+    background: rgb(0 0 0 / 75%);
+}
+
+.nails-club-footer {
+    width: min(100% - 2rem, 68rem);
+    margin-inline: auto;
+    padding-block: 2rem;
+    color: var(--club-muted);
+}
+
+.nails-club-footer p {
+    color: var(--club-muted);
+}
+
+@media (min-width: 42rem) {
+    .nails-club-header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .nails-club-home .nails-club-home__hero {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .nails-club-home__gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .nails-club-home__gallery > .wp-block-column {
+        min-width: 0;
+    }
+
+    .nails-club-home .agenda-cards {
+        display: none;
+    }
+
+    .nails-club-home .agenda-table {
+        display: block;
+    }
+}
+
+@media (min-width: 48rem) {
+    .nails-club-home__feature-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 62rem) {
+    .nails-club-home.js-ready .navbar-toggler {
+        display: none;
+    }
+
+    .nails-club-home.js-ready .navbar-collapse:not(.is-open) {
+        display: block;
+    }
+
+    .nails-club-home__gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 24rem) {
+    .nails-club-home {
+        width: calc(100% - 1rem);
+        overflow-wrap: anywhere;
+    }
+
+    .nails-club-home .nails-club-home__main > .wp-block-group:first-child {
+        padding: 1rem;
+    }
+
+    .nails-club-home .agenda-action,
+    .nails-club-home form button {
+        max-width: 100%;
+    }
+}

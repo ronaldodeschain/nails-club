@@ -70,6 +70,27 @@ jQuery 4.0.0 local é usado somente para limpar a mensagem de estado do formulá
 
 A auditoria corrigiu contraste do botão e foco do link de salto, revisou metadados/âncoras e elevou a prioridade da imagem hero. O relatório registra resultados e limites: o navegador integrado não expôs LCP e não há métricas de campo sem URL publicada. Consulte `docs/relatorio-final.md` e `TESTES.md`.
 
+## T10 — WordPress local
+
+O tema filho está em `wordpress/tema-filho/nails-club-studio/`. O WordPress local atual roda no XAMPP; copie a pasta para `wp-content/themes/`. O permalink `/inicio/` passou smoke test local; a raiz ainda precisa ser apontada para essa página em **Configurações > Leitura**. Este repositório não é um backup completo de WordPress. Staging e publicação continuam pendentes. Consulte `CMS.md` para o ambiente, backups e limitações, incluindo a confirmação de licença das imagens antes de qualquer preview público.
+
+## T11 — Testes automatizados
+
+Instale Node.js/npm, dependências e navegadores Playwright; rode a matriz Chromium, Firefox, WebKit e perfis móveis emulados:
+
+```powershell
+npm ci
+npx playwright install chromium firefox webkit
+npm test
+npm run test:mutation
+```
+
+O Playwright inicia um servidor estático para `prototipo/`; a instalação WordPress/XAMPP requer smoke test separado. Relatórios HTML e traces de falha ficam localmente em pastas ignoradas pelo Git. Emulação móvel não substitui teste em aparelho físico. Os roteiros, resultados e pendências estão em `TESTES.md`.
+
+## T12 — Preparação de release
+
+README, decisões, CMS, testes e limitações foram revisados localmente. A auditoria de links/documentação e o smoke test local estão em `TESTES.md`. Publicação, HTTPS, URL, tag e smoke test do ambiente hospedado continuam pendentes; nenhuma operação GitHub foi feita nesta etapa.
+
 ## Estrutura do repositório
 
 ```text
@@ -90,4 +111,4 @@ A auditoria corrigiu contraste do botão e foco do link de salto, revisou metada
 └─ tests/
 ```
 
-Os diretórios ainda sem implementação contêm apenas `.gitkeep` para permanecerem visíveis no Git. Consulte `DECISOES.md`, `TESTES.md` e `CMS.md` para o estado e as pendências de cada frente.
+Diretórios ainda sem implementação podem conter `.gitkeep`; o tema filho WordPress está preparado e o site local é executado no XAMPP. Staging e publicação permanecem pendentes. Consulte `DECISOES.md`, `TESTES.md` e `CMS.md` para o estado e as próximas etapas.

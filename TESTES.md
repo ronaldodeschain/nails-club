@@ -2,7 +2,7 @@
 
 ## Estado
 
-O protótipo atual é um arquivo HTML estático. Ainda não há runner de testes automatizados configurado. Os casos abaixo são verificações manuais planejadas; registre a data, navegador, resultado e evidência após executá-los.
+O protótipo é um arquivo HTML estático. A suíte Playwright em `tests/e2e/` serve `prototipo/` localmente e cobre Chromium, Firefox, WebKit e dois perfis móveis emulados. Testes emulados não substituem validação em aparelho físico; os casos explicitamente pendentes continuam pendentes.
 
 ## Verificações de T01
 
@@ -12,7 +12,7 @@ O protótipo atual é um arquivo HTML estático. Ainda não há runner de testes
 | Navegação sem JavaScript | Desativar JavaScript e acionar links da navegação por teclado | Cada âncora leva à seção correspondente | Concluído |
 | Zoom | Ampliar a página no navegador | Conteúdo continua disponível e legível | Concluído |
 | Divulgação nativa | Acionar o `<summary>` da explicação de dress code | O navegador compatível expande e recolhe o conteúdo | Concluído |
-| Formulário estrutural | Inspecionar o formulário de contato | Campos estão associados a rótulos e desativados até existir destino de envio | Concluído |
+| Formulário estrutural | Inspecionar rótulos, validação e enviar dados fictícios | Campos têm rótulos; validação e mensagem são locais; não há requisição `POST` nem persistência | Concluído; coberto por Playwright |
 
 ## Verificações de T03
 
@@ -104,6 +104,79 @@ Condições: 15/10/2026, Chrome integrado no VS Code (versão não exposta), Win
 | Métrica de campo e repetição | Consultar CrUX após publicar e comparar antes/depois em ambiente controlado | Sem URL publicada/dados de campo; não há comparação numérica LCP/INP/CLS antes/depois | Pendente de publicação e ferramenta de medição adequada |
 
 Limites: os tempos de Event Timing são amostras sintéticas de poucas interações, não o p75 de INP de usuários; CLS zero não prova estabilidade em outros aparelhos/rede; ausência de LCP é limitação do navegador de teste. Métricas de campo e comparação repetível devem ser feitas após publicação, com condições e cache registrados.
+
+## Verificações de T10
+
+Pré-condição: iniciar Apache/MySQL no XAMPP e atualizar o tema em `C:\xampp\htdocs\nailsclub-local\wp-content\themes\nails-club-studio\`, conforme `CMS.md`. Studio permanece uma alternativa futura.
+
+| Caso | Procedimento | Resultado esperado | Estado |
+| --- | --- | --- | --- |
+| Estrutura do tema | Conferir `style.css`, `functions.php`, `theme.json`, padrão e imagens | Child theme aponta para `twentytwentyfive`; CSS/JSON/PHP têm estrutura válida e assets estão locais | Estrutura preparada; lint PHP e parse JSON passaram |
+| Ativação | Ativar Twenty Twenty-Five e depois Nails Club Studio em Aparência > Temas | Tema filho ativo sem editar arquivos do pai nem gerar erro PHP | Ativo no XAMPP; permalink e assets passaram smoke local; validação do editor continua pendente |
+| Front-end local | Abrir `http://localhost/nailsclub-local/inicio/`; conferir markup, imagens, script e console; adicionar um exemplo na agenda | HTTP 200, tema e JS ativos, imagens carregadas, evento temporário criado, sem erro de console/4xx | Passou em 16/10/2026 no Chromium local: 4 imagens, 3→4 eventos, zero erros | Concluído para o permalink local |
+| Página inicial e editor | Abrir `/`, definir a página `inicio` em Configurações > Leitura; editar/salvar uma página nova com o padrão | Raiz mostra a home e o editor não mostra bloco inválido | `/` ainda mostra a lista de posts; a tela do editor não foi validada após a última alteração | Pendente |
+| Papel mínimo | Criar usuário local Editor e validar edição de página sem permissões administrativas | Editor altera conteúdo, mas não instala temas/plugins nem altera configurações do site | Pendente; usuário de teste ainda não criado |
+| Backup e restauração | Exportar banco e site; restaurar em instância local isolada | Banco, uploads, tema e plugins são recuperáveis sem sobrescrever produção | Pendente; XAMPP existe, mas backup/restauração não foram exercitados |
+| Procedência de mídia | Identificar autoria/licença de cada imagem e registrar créditos | Uso redistribuído está autorizado antes de preview público ou produção | Bloqueio de publicação; fonte não documentada no repositório |
+| Staging, HTTPS e rollback | Aplicar em staging, verificar HTTPS e executar retorno ao backup | Smoke test aprovado e recuperação comprovada antes de produção | Pendente; host/staging não definidos |
+
+## T11 — Plano e automação
+
+### Riscos cobertos
+
+| Risco | Prioridade | Sinal de falha coberto |
+| --- | --- | --- |
+| Navegação inacessível por teclado ou menu que não fecha/expõe estado | Alta | `aria-expanded`, links por âncora e foco no destino |
+| Agenda dessincronizada entre cards/tabela, filtro incorreto ou favorito sem estado | Alta | Busca, contagem, `aria-pressed` e exemplo criado durante a sessão |
+| Mensagem de contato enviada ou estado de validação ausente | Alta | Validação inválida/válida e confirmação sem envio de rede |
+| Layout transbordando ou apresentação errada nos limites responsivos | Alta | Viewports 320, 671, 672, 991 e 992 CSS px |
+| Modal não fechar por teclado ou não devolver foco | Média | Escape, estado fechado e foco no acionador |
+| Falha isolada em motor ou perfil móvel | Média | Projetos separados Chromium, Firefox, WebKit, Pixel 7 e iPhone 13 emulados |
+
+### Pré-condições e execução
+
+- Node.js/npm instalados; versão usada nesta execução: Node 24.12.0 e npm 11.6.2.
+- Em clone limpo, execute `npm ci` e `npx playwright install chromium firefox webkit`.
+- `npm test` inicia automaticamente um servidor estático de `prototipo/`, executa os oito fluxos em cinco projetos e gera relatório/traces de falha.
+- `npm run test:mutation` remove de forma temporária a mensagem de sucesso do formulário e verifica que a assertion correspondente detecta a mutação. A falha provocada é esperada e isolada da suíte normal.
+- `npm run test:report` abre o relatório HTML gerado. `test-results/` e `playwright-report/` ficam fora do Git.
+- A suíte automatiza `prototipo/index.html` servido localmente; não autentica nem testa o painel WordPress. Faça o smoke test da instalação XAMPP separadamente.
+
+### Roteiros manuais
+
+| Caso | Pré-condição e passos | Resultado esperado | Observado | Estado |
+| --- | --- | --- | --- | --- |
+| Menu e foco | Abrir a home em 390px; operar menu por Enter; escolher Agenda | `aria-expanded` acompanha o estado, URL recebe `#agenda` e o foco chega ao destino | Assertions passaram em Chromium, Firefox, WebKit e perfis emulados | Automatizado; repetir manualmente em aparelho físico |
+| Agenda | Abrir em 390px; filtrar `darkwave`, limpar, favoritar e adicionar exemplo | Cards/tabela sincronizados, status anunciado e exemplo visível; dados são temporários | Assertions passaram nos cinco projetos | Automatizado |
+| Galeria | Abrir em 390px e avançar por botão; arrastar a figura visível | Status e slide acompanham o movimento; sem depender só do gesto | Assertions passaram nos cinco projetos | Automatizado; toque físico pendente |
+| Modal | Abrir “Como funciona esta agenda?”; pressionar Escape | Diálogo fecha e foco retorna ao acionador | Assertions passaram nos cinco projetos | Automatizado |
+| Formulário | Enviar vazio; preencher dados fictícios `example.test`; enviar | Validação orienta campos; sucesso é local e nenhum dado é enviado/armazenado | Assertions passaram nos cinco projetos | Automatizado |
+| Breakpoints | Repetir em 320, 671, 672, 991 e 992 CSS px | Sem overflow horizontal; agenda muda de cards para tabela em 672px | Assertions passaram nos cinco projetos | Automatizado; zoom real pendente |
+| Movimento reduzido | Emular `prefers-reduced-motion: reduce`, focar/hover no formulário | Scroll `auto`, transição `0s`, sem escala no hover | Assertions passaram após corrigir a media query | Automatizado nos cinco projetos |
+| Links e recursos locais | Carregar home, validar cada âncora `#`, decodificar imagens e observar respostas/erros de página | Todos os destinos existem; assets locais retornam 2xx; sem exceções JS | Assertions passaram nos cinco projetos | Automatizado |
+| WordPress/XAMPP | Iniciar Apache/MySQL, abrir a página local atualizada e verificar tema, assets, agenda e console | Página responde e fluxos locais funcionam sem erros | `/inicio/` passou; raiz ainda não está definida como home e editor Gutenberg segue pendente | Parcial; ver casos T10 |
+| Dispositivo real | Repetir navegação, formulário, gestos, teclado virtual e zoom em celular físico | Comportamento corresponde à emulação sem ocultar conteúdo ou foco | Nenhum aparelho físico foi usado nesta execução | Pendente |
+
+### Resultado T11
+
+- 16/10/2026: `npm test` passou com 40/40 execuções: oito fluxos em Chromium, Firefox, WebKit, Pixel 7 emulado e iPhone 13 emulado, incluindo os novos testes de movimento reduzido e smoke local.
+- 16/10/2026: `npm run test:mutation` removeu a mensagem de sucesso na resposta JavaScript; a assertion de sucesso falhou como esperado e o autodiagnóstico confirmou a detecção, encerrando o comando com sucesso.
+- Falhas iniciais da suíte expuseram duas expectativas de teste incorretas (status da galeria após gesto e corrida com transição do modal); foram corrigidas usando a figura atualmente visível e eventos `shown.bs.modal`/`hidden.bs.modal`, sem atrasos fixos.
+- O smoke automatizado usa os navegadores fornecidos pelo Playwright; não prova compatibilidade com todas as versões de navegadores de marca nem substitui aparelhos reais.
+- Os testes não fazem login no WordPress nem usam dados reais. O formulário usa apenas dados fictícios e não envia requisição.
+
+## T12 — Revisão local pré-release
+
+| Verificação local | Resultado | Limite |
+| --- | --- | --- |
+| Links de arquivo/imagem em Markdown | Todos os links locais nos seis arquivos Markdown verificados resolvem no repositório | URLs externas não são parte do teste local |
+| Fontes e referências externas em `CMS.md`/`DECISOES.md` | Páginas WordPress, Bootstrap, jQuery e jsDelivr consultadas em 16/10/2026 | Disponibilidade pode mudar; repetir antes da publicação |
+| Âncoras, imagens, respostas locais e erros JS do protótipo | Cobertos pelo smoke Playwright na matriz de cinco projetos | Não testa URLs publicadas nem o painel WordPress |
+| WordPress local | Chromium abriu `/inicio/`, decodificou 4 imagens, criou evento temporário e não observou console/4xx | A raiz `/` ainda lista posts; editor Gutenberg não foi validado nesta etapa |
+| README, decisões, CMS e testes | Revisados contra a implementação atual; status XAMPP separado de Studio e itens não verificados continuam pendentes | Sem URL/tag; revisão final do release após deploy |
+| 404, HTTPS, links e fluxos no host | Não executados, conforme escopo desta etapa | Dependem da publicação, explicitamente adiada |
+
+Limitações que permanecem: imagens sem procedência/licença documentada; versão/engine do servidor MariaDB ainda não confirmada; sem usuário WordPress Editor de teste, backup restaurado, staging, domínio/HTTPS ou rollback ensaiado; métricas Core Web Vitals comparáveis e validação em aparelho físico pendentes. Nenhum resultado emulado é apresentado como teste de aparelho real.
 
 ## Registro de resultados
 
