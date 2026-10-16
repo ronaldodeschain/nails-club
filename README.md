@@ -1,5 +1,7 @@
 Projeto Nails, Club ficticio para UC mobile first do Senac.
 
+[Link para o Github Pages](https://ronaldodeschain.github.io/nails-club/prototipo/index.html)
+
 <h2>Publico alvo</h2>
 Góticos a procura de um local seguro e estilizado para frequentar, ouvir boas músicas, conhecer pessoas novas, encontrar amigos, sempre com muito respeito e segurança.
 
