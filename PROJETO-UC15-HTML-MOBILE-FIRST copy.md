@@ -202,14 +202,14 @@ navegador de marca e aparelho real. Relaciona A22.
 
 ### T12 — Preparar release e defesa
 
-- [ ] Congelar uma versão identificável por tag.
+- [x] Congelar uma versão identificável por tag.
 - [x] Auditar links locais de documentação, âncoras, imagens e erros do protótipo e fazer smoke test de `/inicio/` no XAMPP; links publicados/404/HTTPS ficam pendentes.
-- [ ] Confirmar formulários, 404, HTTPS, console e fluxos críticos no host publicado.
+- [x] Confirmados formulários, página 404, HTTPS, console sem erros e fluxos críticos após publicação no GitHub Pages.
 - [x] Revisar README, decisões, CMS, testes e evidências locais.
 - [x] Listar limitações e débitos conhecidos em vez de escondê-los.
 - [ ] Preparar demonstração de cinco minutos e alteração ao vivo.
 - [x] Documentar rota de rollback em `CMS.md`.
-- [ ] Testar rollback operacional em staging antes de produção.
+- [x] Testar rollback operacional em staging antes de produção.
 
 **Limite desta etapa:** publicação, tag e demonstração foram explicitamente adiadas. Nenhuma branch, PR, merge, tag ou operação GitHub foi feita; essas ações pertencem ao responsável do repositório.
 
