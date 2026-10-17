@@ -1,5 +1,7 @@
 Projeto Nails, Club ficticio para UC mobile first do Senac.
 
+[link para o repositório](https://github.com/ronaldodeschain/nails-club)
+
 [Link para o Github Pages](https://ronaldodeschain.github.io/nails-club/prototipo/index.html)
 
 <h2>Publico alvo</h2>
